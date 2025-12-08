@@ -159,7 +159,7 @@ export default function Home() {
         {/* Main Content */}
         <div className="flex-1">
           <div className="mb-4 text-gray-600 flex justify-between items-center">
-            <span>Showing {filteredQuestions.length} problems</span>
+            <span>Total {filteredQuestions.length} problems</span>
 
             {/* Pagination Controls Top */}
             {totalPages > 1 && (

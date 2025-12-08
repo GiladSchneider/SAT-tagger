@@ -8,7 +8,8 @@ import { Search } from "lucide-react";
 const ITEMS_PER_PAGE = 10;
 
 export default function Home() {
-  const { questions, allTags, addTag, removeTag, loading } = useQuestions();
+  const { questions, allTags, addTag, removeTag, loading, userId, userEmail } =
+    useQuestions();
 
   // Filters
   const [selectedTags, setSelectedTags] = useState<string[]>([]);
@@ -79,12 +80,29 @@ export default function Home() {
     <div className="min-h-screen bg-gray-100 p-8 font-sans">
       <header className="mb-8 flex justify-between items-center print:hidden">
         <h1 className="text-3xl font-bold text-gray-800">SAT Question Bank</h1>
-        <button
-          onClick={handlePrint}
-          className="bg-blue-600 text-white px-4 py-2 rounded hover:bg-blue-700 cursor-pointer"
-        >
-          Export to PDF / Print
-        </button>
+        <div className="flex items-center gap-4">
+          {userId ? (
+            <div className="flex items-center gap-2 text-sm">
+              <span className="text-gray-600">{userEmail}</span>
+              <Link href="/auth" className="text-blue-600 hover:underline">
+                Account
+              </Link>
+            </div>
+          ) : (
+            <Link
+              href="/auth"
+              className="bg-gray-200 text-gray-700 px-4 py-2 rounded hover:bg-gray-300 cursor-pointer"
+            >
+              Sign In
+            </Link>
+          )}
+          <button
+            onClick={handlePrint}
+            className="bg-blue-600 text-white px-4 py-2 rounded hover:bg-blue-700 cursor-pointer"
+          >
+            Export to PDF / Print
+          </button>
+        </div>
       </header>
 
       <div className="flex gap-8 print:block">

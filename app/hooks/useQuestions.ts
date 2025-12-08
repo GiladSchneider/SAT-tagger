@@ -2,13 +2,37 @@
 
 import { useState, useEffect } from "react";
 import { Question } from "../types";
+import { supabase } from "../../lib/supabaseClient";
 
 export function useQuestions() {
   const [questions, setQuestions] = useState<Question[]>([]);
   const [allTags, setAllTags] = useState<string[]>([]);
   const [loading, setLoading] = useState(true);
+  const [userId, setUserId] = useState<string | null>(null);
+  const [userEmail, setUserEmail] = useState<string | null>(null);
 
-  // Load initial data
+  // Listen to auth state changes
+  useEffect(() => {
+    if (!supabase) return;
+
+    // Get initial session
+    supabase.auth.getSession().then(({ data: { session } }) => {
+      setUserId(session?.user?.id || null);
+      setUserEmail(session?.user?.email || null);
+    });
+
+    // Subscribe to auth changes
+    const {
+      data: { subscription },
+    } = supabase.auth.onAuthStateChange((_event, session) => {
+      setUserId(session?.user?.id || null);
+      setUserEmail(session?.user?.email || null);
+    });
+
+    return () => subscription.unsubscribe();
+  }, []);
+
+  // Load questions and tags
   useEffect(() => {
     async function loadData() {
       try {
@@ -22,11 +46,29 @@ export function useQuestions() {
 
         const combined = [...mathData, ...engData];
 
-        // Load tags from localStorage
-        const storedTags = localStorage.getItem("sat-app-tags");
-        const tagMap: Record<string, string[]> = storedTags
-          ? JSON.parse(storedTags)
-          : {};
+        // Load tags based on auth state
+        let tagMap: Record<string, string[]> = {};
+
+        if (userId && supabase) {
+          // Load from Supabase
+          const { data, error } = await supabase
+            .from("tags")
+            .select("question_id, tag")
+            .eq("user_id", userId);
+
+          if (!error && data) {
+            data.forEach((row: { question_id: string; tag: string }) => {
+              if (!tagMap[row.question_id]) {
+                tagMap[row.question_id] = [];
+              }
+              tagMap[row.question_id].push(row.tag);
+            });
+          }
+        } else {
+          // Load from localStorage
+          const storedTags = localStorage.getItem("sat-app-tags");
+          tagMap = storedTags ? JSON.parse(storedTags) : {};
+        }
 
         // Merge tags
         const merged = combined.map((q) => ({
@@ -48,9 +90,10 @@ export function useQuestions() {
     }
 
     loadData();
-  }, []);
+  }, [userId]);
 
-  const addTag = (questionId: string, tag: string) => {
+  const addTag = async (questionId: string, tag: string) => {
+    // Update local state immediately
     const newQuestions = questions.map((q) => {
       if (q.id === questionId) {
         if (q.tags.includes(tag)) return q;
@@ -60,14 +103,24 @@ export function useQuestions() {
     });
 
     setQuestions(newQuestions);
-    updateLocalStorage(newQuestions);
 
     if (!allTags.includes(tag)) {
       setAllTags([...allTags, tag]);
     }
+
+    // Persist
+    if (userId && supabase) {
+      await supabase.from("tags").insert({
+        user_id: userId,
+        question_id: questionId,
+        tag: tag,
+      });
+    } else {
+      updateLocalStorage(newQuestions);
+    }
   };
 
-  const removeTag = (questionId: string, tag: string) => {
+  const removeTag = async (questionId: string, tag: string) => {
     const newQuestions = questions.map((q) => {
       if (q.id === questionId) {
         return { ...q, tags: q.tags.filter((t) => t !== tag) };
@@ -75,7 +128,18 @@ export function useQuestions() {
       return q;
     });
     setQuestions(newQuestions);
-    updateLocalStorage(newQuestions);
+
+    // Persist
+    if (userId && supabase) {
+      await supabase
+        .from("tags")
+        .delete()
+        .eq("user_id", userId)
+        .eq("question_id", questionId)
+        .eq("tag", tag);
+    } else {
+      updateLocalStorage(newQuestions);
+    }
   };
 
   const updateLocalStorage = (qs: Question[]) => {
@@ -88,5 +152,5 @@ export function useQuestions() {
     localStorage.setItem("sat-app-tags", JSON.stringify(tagMap));
   };
 
-  return { questions, allTags, addTag, removeTag, loading };
+  return { questions, allTags, addTag, removeTag, loading, userId, userEmail };
 }

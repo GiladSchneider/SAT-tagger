@@ -14,13 +14,13 @@ export default function QuestionPage({
   const { questions, loading, addTag, removeTag, allTags } = useQuestions();
   const [showAnswer, setShowAnswer] = useState(false);
 
-  if (loading) return <div className="p-10">Loading...</div>;
+  if (loading) return <div className="p-4 md:p-10">Loading...</div>;
 
   const question = questions.find((q) => q.id === id);
 
   if (!question) {
     return (
-      <div className="p-10">
+      <div className="p-4 md:p-10">
         <Link
           href="/"
           className="text-blue-600 hover:underline flex items-center mb-4"
@@ -33,22 +33,23 @@ export default function QuestionPage({
   }
 
   return (
-    <div className="min-h-screen bg-gray-100 p-8 font-sans">
+    <div className="min-h-screen bg-gray-100 p-4 md:p-8 font-sans">
       <div className="max-w-4xl mx-auto">
         <Link
           href="/"
-          className="text-blue-600 hover:underline flex items-center mb-6"
+          className="text-blue-600 hover:underline flex items-center mb-4 md:mb-6"
         >
           <ArrowLeft className="w-4 h-4 mr-1" /> Back to Question Bank
         </Link>
 
-        <div className="bg-white p-8 rounded shadow">
-          <div className="flex justify-between items-start mb-6">
+        <div className="bg-white p-4 md:p-8 rounded shadow">
+          {/* Header - stacks on mobile */}
+          <div className="flex flex-col sm:flex-row sm:justify-between sm:items-start gap-4 mb-6">
             <div>
-              <h1 className="text-2xl font-bold mb-2">
+              <h1 className="text-xl md:text-2xl font-bold mb-2">
                 Question {question.id}
               </h1>
-              <div className="flex gap-2">
+              <div className="flex flex-wrap gap-2">
                 <span className="inline-block bg-gray-200 rounded px-2 py-1 text-xs font-bold text-gray-700">
                   {question.subject.toUpperCase()}
                 </span>
@@ -58,15 +59,17 @@ export default function QuestionPage({
               </div>
             </div>
 
-            <TagInput
-              existingTags={question.tags}
-              allTags={allTags}
-              onAdd={(t) => addTag(question.id, t)}
-              onRemove={(t) => removeTag(question.id, t)}
-            />
+            <div className="w-full sm:w-auto">
+              <TagInput
+                existingTags={question.tags}
+                allTags={allTags}
+                onAdd={(t) => addTag(question.id, t)}
+                onRemove={(t) => removeTag(question.id, t)}
+              />
+            </div>
           </div>
 
-          <div className="mb-8 bg-gray-50 p-4 rounded border border-gray-200">
+          <div className="mb-6 md:mb-8 bg-gray-50 p-2 md:p-4 rounded border border-gray-200 overflow-x-auto">
             {question.question_image ? (
               <img
                 src={`/${question.question_image}`}
@@ -78,17 +81,17 @@ export default function QuestionPage({
             )}
           </div>
 
-          <div className="border-t pt-6">
+          <div className="border-t pt-4 md:pt-6">
             <button
               onClick={() => setShowAnswer(!showAnswer)}
-              className="bg-blue-600 text-white px-6 py-2 rounded hover:bg-blue-700 transition-colors cursor-pointer"
+              className="bg-blue-600 text-white px-4 md:px-6 py-2 rounded hover:bg-blue-700 transition-colors cursor-pointer text-sm md:text-base"
             >
               {showAnswer ? "Hide Answer" : "Show Answer"}
             </button>
 
             {showAnswer && (
-              <div className="mt-6 p-6 bg-green-50 rounded border border-green-100 animate-in fade-in slide-in-from-top-4 duration-300">
-                <div className="mb-4 font-bold text-green-800">
+              <div className="mt-4 md:mt-6 p-3 md:p-6 bg-green-50 rounded border border-green-100 overflow-x-auto">
+                <div className="mb-3 md:mb-4 font-bold text-green-800 text-sm md:text-base">
                   Correct Answer: {question.correct_answer || "See details"}
                 </div>
                 {question.answer_image && (
@@ -135,10 +138,10 @@ function TagInput({
   );
 
   return (
-    <div className="relative w-64 flex flex-col gap-2">
-      {/* Tags displayed ABOVE input (or separate from it) */}
+    <div className="relative w-full sm:w-64 flex flex-col gap-2">
+      {/* Tags displayed ABOVE input */}
       {existingTags.length > 0 && (
-        <div className="flex flex-wrap gap-1 mb-1 justify-end">
+        <div className="flex flex-wrap gap-1 mb-1">
           {existingTags.map((tag) => (
             <span
               key={tag}
@@ -164,7 +167,7 @@ function TagInput({
           onFocus={() => setShowSuggestions(true)}
           onBlur={() => setTimeout(() => setShowSuggestions(false), 200)}
           placeholder="+ Add tag"
-          className="text-sm border rounded px-2 py-1 w-full"
+          className="text-sm border rounded px-2 py-1.5 w-full"
         />
         {showSuggestions && input && filteredSuggestions.length > 0 && (
           <div className="absolute top-full left-0 w-full bg-white border rounded shadow mt-1 z-10 max-h-32 overflow-y-auto">
@@ -172,7 +175,7 @@ function TagInput({
               <button
                 key={tag}
                 type="button"
-                className="block w-full text-left px-2 py-1 text-sm hover:bg-gray-100 cursor-pointer"
+                className="block w-full text-left px-2 py-2 text-sm hover:bg-gray-100 cursor-pointer"
                 onClick={() => {
                   onAdd(tag);
                   setInput("");

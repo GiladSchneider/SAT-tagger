@@ -87,12 +87,12 @@ export default function AuthPage() {
 
   if (!supabase) {
     return (
-      <div className="min-h-screen bg-gray-100 flex items-center justify-center p-8">
-        <div className="bg-white p-8 rounded shadow max-w-md w-full text-center">
-          <h1 className="text-2xl font-bold text-red-600 mb-4">
+      <div className="min-h-screen bg-gray-100 flex items-center justify-center p-4 md:p-8">
+        <div className="bg-white p-6 md:p-8 rounded shadow max-w-md w-full text-center">
+          <h1 className="text-xl md:text-2xl font-bold text-red-600 mb-4">
             Auth Not Configured
           </h1>
-          <p className="text-gray-600 mb-4">
+          <p className="text-gray-600 mb-4 text-sm md:text-base">
             Supabase environment variables are missing. Please add
             NEXT_PUBLIC_SUPABASE_URL and NEXT_PUBLIC_SUPABASE_ANON_KEY to your
             .env.local file.
@@ -107,15 +107,17 @@ export default function AuthPage() {
 
   if (user) {
     return (
-      <div className="min-h-screen bg-gray-100 flex items-center justify-center p-8">
-        <div className="bg-white p-8 rounded shadow max-w-md w-full">
-          <h1 className="text-2xl font-bold text-gray-800 mb-6 text-center">
+      <div className="min-h-screen bg-gray-100 flex items-center justify-center p-4 md:p-8">
+        <div className="bg-white p-6 md:p-8 rounded shadow max-w-md w-full">
+          <h1 className="text-xl md:text-2xl font-bold text-gray-800 mb-6 text-center">
             Account
           </h1>
 
           <div className="text-center mb-6">
-            <p className="text-gray-600 mb-2">Signed in as:</p>
-            <p className="font-semibold text-gray-800">{user.email}</p>
+            <p className="text-gray-600 mb-2 text-sm">Signed in as:</p>
+            <p className="font-semibold text-gray-800 text-sm md:text-base break-all">
+              {user.email}
+            </p>
           </div>
 
           <div className="space-y-4">
@@ -139,9 +141,9 @@ export default function AuthPage() {
   }
 
   return (
-    <div className="min-h-screen bg-gray-100 flex items-center justify-center p-8">
-      <div className="bg-white p-8 rounded shadow max-w-md w-full">
-        <h1 className="text-2xl font-bold text-gray-800 mb-6 text-center">
+    <div className="min-h-screen bg-gray-100 flex items-center justify-center p-4 md:p-8">
+      <div className="bg-white p-6 md:p-8 rounded shadow max-w-md w-full">
+        <h1 className="text-xl md:text-2xl font-bold text-gray-800 mb-6 text-center">
           {mode === "signin" ? "Sign In" : "Create Account"}
         </h1>
 
@@ -155,7 +157,7 @@ export default function AuthPage() {
               value={email}
               onChange={(e) => setEmail(e.target.value)}
               required
-              className="w-full border rounded px-3 py-2 focus:ring-2 focus:ring-blue-500 focus:outline-none"
+              className="w-full border rounded px-3 py-2.5 focus:ring-2 focus:ring-blue-500 focus:outline-none text-base"
               placeholder="you@example.com"
             />
           </div>
@@ -170,7 +172,7 @@ export default function AuthPage() {
               onChange={(e) => setPassword(e.target.value)}
               required
               minLength={6}
-              className="w-full border rounded px-3 py-2 focus:ring-2 focus:ring-blue-500 focus:outline-none"
+              className="w-full border rounded px-3 py-2.5 focus:ring-2 focus:ring-blue-500 focus:outline-none text-base"
               placeholder="••••••••"
             />
           </div>

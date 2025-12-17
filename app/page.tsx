@@ -5,7 +5,7 @@ import { useQuestions } from "./hooks/useQuestions";
 import Link from "next/link";
 import { Search, Menu, X } from "lucide-react";
 
-const ITEMS_PER_PAGE = 10;
+const PAGE_SIZE_OPTIONS = [5, 10, 25, 50, 100];
 
 export default function Home() {
   const { questions, allTags, addTag, removeTag, loading, userId, userEmail } =
@@ -21,6 +21,7 @@ export default function Home() {
 
   // Pagination
   const [currentPage, setCurrentPage] = useState(1);
+  const [itemsPerPage, setItemsPerPage] = useState(10);
 
   // Mobile sidebar toggle
   const [sidebarOpen, setSidebarOpen] = useState(false);
@@ -42,16 +43,16 @@ export default function Home() {
   }, [questions, selectedSubject, selectedTags, selectedDifficulty]);
 
   // Pagination logic
-  const totalPages = Math.ceil(filteredQuestions.length / ITEMS_PER_PAGE);
+  const totalPages = Math.ceil(filteredQuestions.length / itemsPerPage);
   const currentQuestions = filteredQuestions.slice(
-    (currentPage - 1) * ITEMS_PER_PAGE,
-    currentPage * ITEMS_PER_PAGE
+    (currentPage - 1) * itemsPerPage,
+    currentPage * itemsPerPage
   );
 
   // Reset page when filters change
   useMemo(() => {
     setCurrentPage(1);
-  }, [selectedTags, selectedSubject, selectedDifficulty]);
+  }, [selectedTags, selectedSubject, selectedDifficulty, itemsPerPage]);
 
   // Scroll to top when page changes
   useEffect(() => {
@@ -165,6 +166,22 @@ export default function Home() {
               <option value="Easy">Easy</option>
               <option value="Medium">Medium</option>
               <option value="Hard">Hard</option>
+            </select>
+
+            <h3 className="font-bold mb-2 mt-4">Questions per Page</h3>
+            <select
+              value={itemsPerPage}
+              onChange={(e) => {
+                setItemsPerPage(Number(e.target.value));
+                setSidebarOpen(false);
+              }}
+              className="w-full p-2 border rounded"
+            >
+              {PAGE_SIZE_OPTIONS.map((size) => (
+                <option key={size} value={size}>
+                  {size} per page
+                </option>
+              ))}
             </select>
           </div>
 

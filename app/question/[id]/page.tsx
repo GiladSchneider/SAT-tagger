@@ -1,9 +1,10 @@
 "use client";
 
-import { use, useState } from "react";
+import { use, useState, useEffect } from "react";
 import { useQuestions } from "../../hooks/useQuestions";
 import Link from "next/link";
-import { ArrowLeft } from "lucide-react";
+import { useRouter } from "next/navigation";
+import { ArrowLeft, ChevronLeft, ChevronRight } from "lucide-react";
 
 export default function QuestionPage({
   params,
@@ -13,6 +14,34 @@ export default function QuestionPage({
   const { id } = use(params);
   const { questions, loading, addTag, removeTag, allTags } = useQuestions();
   const [showAnswer, setShowAnswer] = useState(false);
+  const router = useRouter();
+
+  // Find navigation info early for keyboard handler
+  const currentIndex = questions.findIndex((q) => q.id === id);
+  const prevQuestion = currentIndex > 0 ? questions[currentIndex - 1] : null;
+  const nextQuestion =
+    currentIndex < questions.length - 1 ? questions[currentIndex + 1] : null;
+
+  // Keyboard navigation (left/right arrows)
+  useEffect(() => {
+    const handleKeyDown = (e: KeyboardEvent) => {
+      // Don't navigate if user is typing in an input
+      if (
+        e.target instanceof HTMLInputElement ||
+        e.target instanceof HTMLTextAreaElement
+      )
+        return;
+
+      if (e.key === "ArrowLeft" && prevQuestion) {
+        router.push(`/question/${prevQuestion.id}`);
+      } else if (e.key === "ArrowRight" && nextQuestion) {
+        router.push(`/question/${nextQuestion.id}`);
+      }
+    };
+
+    window.addEventListener("keydown", handleKeyDown);
+    return () => window.removeEventListener("keydown", handleKeyDown);
+  }, [prevQuestion, nextQuestion, router]);
 
   if (loading) return <div className="p-4 md:p-10">Loading...</div>;
 
@@ -35,12 +64,47 @@ export default function QuestionPage({
   return (
     <div className="min-h-screen bg-gray-100 p-4 md:p-8 font-sans">
       <div className="max-w-4xl mx-auto">
-        <Link
-          href="/"
-          className="text-blue-600 hover:underline flex items-center mb-4 md:mb-6"
-        >
-          <ArrowLeft className="w-4 h-4 mr-1" /> Back to Question Bank
-        </Link>
+        {/* Navigation bar */}
+        <div className="flex items-center justify-between mb-4 md:mb-6">
+          <Link
+            href="/"
+            className="text-blue-600 hover:underline flex items-center"
+          >
+            <ArrowLeft className="w-4 h-4 mr-1" /> Back to Question Bank
+          </Link>
+
+          <div className="flex items-center gap-2">
+            {prevQuestion ? (
+              <Link
+                href={`/question/${prevQuestion.id}`}
+                className="flex items-center gap-1 px-3 py-1.5 bg-gray-200 hover:bg-gray-300 rounded text-sm text-gray-700 transition-colors"
+              >
+                <ChevronLeft className="w-4 h-4" /> Prev
+              </Link>
+            ) : (
+              <span className="flex items-center gap-1 px-3 py-1.5 bg-gray-100 rounded text-sm text-gray-400 cursor-not-allowed">
+                <ChevronLeft className="w-4 h-4" /> Prev
+              </span>
+            )}
+
+            <span className="text-sm text-gray-500 px-2">
+              {currentIndex + 1} / {questions.length}
+            </span>
+
+            {nextQuestion ? (
+              <Link
+                href={`/question/${nextQuestion.id}`}
+                className="flex items-center gap-1 px-3 py-1.5 bg-gray-200 hover:bg-gray-300 rounded text-sm text-gray-700 transition-colors"
+              >
+                Next <ChevronRight className="w-4 h-4" />
+              </Link>
+            ) : (
+              <span className="flex items-center gap-1 px-3 py-1.5 bg-gray-100 rounded text-sm text-gray-400 cursor-not-allowed">
+                Next <ChevronRight className="w-4 h-4" />
+              </span>
+            )}
+          </div>
+        </div>
 
         <div className="bg-white p-4 md:p-8 rounded shadow">
           {/* Header - stacks on mobile */}

@@ -12,7 +12,8 @@ export default function QuestionPage({
   params: Promise<{ id: string }>;
 }) {
   const { id } = use(params);
-  const { questions, loading, addTag, removeTag, allTags } = useQuestions();
+  const { questions, loading, addTag, removeTag, allTags, updateNote } =
+    useQuestions();
   const [showAnswer, setShowAnswer] = useState(false);
   const router = useRouter();
 
@@ -118,7 +119,7 @@ export default function QuestionPage({
                   {question.subject.toUpperCase()}
                 </span>
                 <span className="inline-block bg-gray-200 rounded px-2 py-1 text-xs font-bold text-gray-700">
-                  {question.difficulty || "Unknown"}
+                  {question.difficulty}
                 </span>
               </div>
             </div>
@@ -167,6 +168,17 @@ export default function QuestionPage({
                 )}
               </div>
             )}
+          </div>
+
+          {/* Notes Section */}
+          <div className="mt-6 border-t pt-4">
+            <h3 className="font-bold text-gray-700 mb-2">Notes</h3>
+            <textarea
+              value={question.notes || ""}
+              onChange={(e) => updateNote(question.id, e.target.value)}
+              placeholder="Add notes about how to solve this problem, key insights, formulas to use, etc..."
+              className="w-full p-3 border rounded text-sm min-h-[120px] resize-y"
+            />
           </div>
         </div>
       </div>

@@ -173,11 +173,9 @@ export default function QuestionPage({
           {/* Notes Section */}
           <div className="mt-6 border-t pt-4">
             <h3 className="font-bold text-gray-700 mb-2">Notes</h3>
-            <textarea
-              value={question.notes || ""}
-              onChange={(e) => updateNote(question.id, e.target.value)}
-              placeholder="Add notes about how to solve this problem, key insights, formulas to use, etc..."
-              className="w-full p-3 border rounded text-sm min-h-[120px] resize-y"
+            <NoteEditor
+              initialNote={question.notes || ""}
+              onSave={(note) => updateNote(question.id, note)}
             />
           </div>
         </div>
@@ -263,6 +261,53 @@ function TagInput({
           </div>
         )}
       </form>
+    </div>
+  );
+}
+
+function NoteEditor({
+  initialNote,
+  onSave,
+}: {
+  initialNote: string;
+  onSave: (note: string) => void;
+}) {
+  const [note, setNote] = useState(initialNote);
+  const hasChanges = note !== initialNote;
+
+  const handleSave = () => {
+    onSave(note);
+  };
+
+  return (
+    <div>
+      <textarea
+        value={note}
+        onChange={(e) => setNote(e.target.value)}
+        placeholder="Add notes about how to solve this problem, key insights, formulas to use, etc..."
+        className={`w-full p-3 border rounded text-sm min-h-[120px] resize-y ${
+          hasChanges ? "border-yellow-400" : ""
+        }`}
+      />
+      <div className="flex items-center gap-2 mt-2">
+        <button
+          onClick={handleSave}
+          disabled={!hasChanges}
+          className={`px-4 py-1.5 rounded text-sm cursor-pointer transition-colors ${
+            hasChanges
+              ? "bg-blue-600 text-white hover:bg-blue-700"
+              : "bg-gray-200 text-gray-400 cursor-not-allowed"
+          }`}
+        >
+          Save Note
+        </button>
+        {hasChanges && (
+          <span className="text-xs text-yellow-600">Unsaved changes</span>
+        )}
+        {!hasChanges && note && (
+          <span className="text-xs text-green-600">✓ Saved</span>
+        )}
+      </div>
     </div>
   );
 }

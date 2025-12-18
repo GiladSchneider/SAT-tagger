@@ -118,10 +118,10 @@ export default function Home() {
     window.print();
   };
 
-  // Questions to display (for print, only selected if any are selected)
+  // Questions to display for print (all selected across all pages)
   const questionsForPrint =
     selectedForExport.size > 0
-      ? currentQuestions.filter((q) => selectedForExport.has(q.id))
+      ? filteredQuestions.filter((q) => selectedForExport.has(q.id))
       : currentQuestions;
 
   if (loading) return <div className="p-4 md:p-10">Loading questions...</div>;
@@ -482,14 +482,10 @@ export default function Home() {
                   </button>
 
                   {showNotesFor[q.id] && (
-                    <div className="mt-2">
-                      <textarea
-                        value={q.notes || ""}
-                        onChange={(e) => updateNote(q.id, e.target.value)}
-                        placeholder="Add notes about how to solve this problem..."
-                        className="w-full p-2 border rounded text-sm min-h-[80px] resize-y"
-                      />
-                    </div>
+                    <NoteEditor
+                      initialNote={q.notes || ""}
+                      onSave={(note) => updateNote(q.id, note)}
+                    />
                   )}
                 </div>
 
@@ -516,6 +512,53 @@ export default function Home() {
                 totalPages={totalPages}
                 onPageChange={setCurrentPage}
               />
+            </div>
+          )}
+
+          {/* Print-only section: render all selected questions from all pages */}
+          {selectedForExport.size > 0 && (
+            <div className="hidden print:block space-y-6">
+              {questionsForPrint
+                .filter((q) => !currentQuestions.some((cq) => cq.id === q.id))
+                .map((q) => (
+                  <div
+                    key={`print-${q.id}`}
+                    className="bg-white p-4 md:p-6 rounded break-inside-avoid print:shadow-none print:border"
+                  >
+                    <div className="flex flex-wrap gap-1 mb-4">
+                      <span className="inline-block bg-gray-200 rounded px-2 py-1 text-xs font-bold text-gray-700">
+                        {q.subject.toUpperCase()}
+                      </span>
+                      <span className="inline-block bg-gray-200 rounded px-2 py-1 text-xs font-bold text-gray-700">
+                        {q.difficulty}
+                      </span>
+                      <span className="inline-block bg-blue-100 text-blue-700 rounded px-2 py-1 text-xs font-bold">
+                        ID: {q.id}
+                      </span>
+                    </div>
+
+                    <div className="mb-4 bg-gray-50 p-2 md:p-4 rounded border border-gray-200">
+                      {q.question_image && (
+                        <img
+                          src={`/${q.question_image}`}
+                          alt="Question"
+                          className="max-w-full md:max-w-2xl max-h-[60vh] w-auto h-auto object-contain"
+                        />
+                      )}
+                    </div>
+
+                    <div className="mt-2">
+                      <p className="text-xs text-gray-500">
+                        Tags: {q.tags.join(", ") || "None"}
+                      </p>
+                      {q.notes && (
+                        <p className="text-xs text-gray-600 mt-1 whitespace-pre-wrap">
+                          Notes: {q.notes}
+                        </p>
+                      )}
+                    </div>
+                  </div>
+                ))}
             </div>
           )}
         </div>
@@ -663,6 +706,59 @@ function PaginationControls({
       >
         Next
       </button>
+    </div>
+  );
+}
+
+function NoteEditor({
+  initialNote,
+  onSave,
+}: {
+  initialNote: string;
+  onSave: (note: string) => void;
+}) {
+  const [note, setNote] = useState(initialNote);
+  const [saved, setSaved] = useState(true);
+
+  const hasChanges = note !== initialNote;
+
+  const handleSave = () => {
+    onSave(note);
+    setSaved(true);
+  };
+
+  return (
+    <div className="mt-2">
+      <textarea
+        value={note}
+        onChange={(e) => {
+          setNote(e.target.value);
+          setSaved(false);
+        }}
+        placeholder="Add notes about how to solve this problem..."
+        className={`w-full p-2 border rounded text-sm min-h-[80px] resize-y ${
+          hasChanges ? "border-yellow-400" : ""
+        }`}
+      />
+      <div className="flex items-center gap-2 mt-2">
+        <button
+          onClick={handleSave}
+          disabled={!hasChanges}
+          className={`px-3 py-1 rounded text-sm cursor-pointer transition-colors ${
+            hasChanges
+              ? "bg-blue-600 text-white hover:bg-blue-700"
+              : "bg-gray-200 text-gray-400 cursor-not-allowed"
+          }`}
+        >
+          Save Note
+        </button>
+        {hasChanges && (
+          <span className="text-xs text-yellow-600">Unsaved changes</span>
+        )}
+        {!hasChanges && note && (
+          <span className="text-xs text-green-600">✓ Saved</span>
+        )}
+      </div>
     </div>
   );
 }

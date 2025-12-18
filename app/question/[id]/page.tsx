@@ -118,7 +118,7 @@ export default function QuestionPage({
                   {question.subject.toUpperCase()}
                 </span>
                 <span className="inline-block bg-gray-200 rounded px-2 py-1 text-xs font-bold text-gray-700">
-                  {question.difficulty || "Unknown Difficulty"}
+                  {question.difficulty || "Unknown"}
                 </span>
               </div>
             </div>

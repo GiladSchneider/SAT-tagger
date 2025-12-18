@@ -266,7 +266,7 @@
     "question_image": "images/b0fc3166_q.png",
     "answer_image": "images/b0fc3166_a.png",
     "correct_answer": "C",
-    "difficulty": null,
+    "difficulty": "Easy",
     "tags": []
   },
   {
@@ -311,7 +311,7 @@
     "question_image": "images/9b0a4eae_q.png",
     "answer_image": "images/9b0a4eae_a.png",
     "correct_answer": "C",
-    "difficulty": null,
+    "difficulty": "Medium",
     "tags": []
   },
   {
@@ -383,7 +383,7 @@
     "question_image": "images/e723bd67_q.png",
     "answer_image": "images/e723bd67_a.png",
     "correct_answer": "D",
-    "difficulty": null,
+    "difficulty": "Medium",
     "tags": []
   },
   {
@@ -419,7 +419,7 @@
     "question_image": "images/a5834ea4_q.png",
     "answer_image": "images/a5834ea4_a.png",
     "correct_answer": "B",
-    "difficulty": null,
+    "difficulty": "Medium",
     "tags": []
   },
   {
@@ -617,7 +617,7 @@
     "question_image": "images/83f2c3bf_q.png",
     "answer_image": "images/83f2c3bf_a.png",
     "correct_answer": "A",
-    "difficulty": null,
+    "difficulty": "Easy",
     "tags": []
   },
   {
@@ -725,7 +725,7 @@
     "question_image": "images/dba8d38a_q.png",
     "answer_image": "images/dba8d38a_a.png",
     "correct_answer": "A",
-    "difficulty": "",
+    "difficulty": "Easy",
     "tags": []
   },
   {
@@ -770,7 +770,7 @@
     "question_image": "images/a130fcdc_q.png",
     "answer_image": "images/a130fcdc_a.png",
     "correct_answer": "C",
-    "difficulty": null,
+    "difficulty": "Easy",
     "tags": []
   },
   {
@@ -779,7 +779,7 @@
     "question_image": "images/7a5a74a6_q.png",
     "answer_image": "images/7a5a74a6_a.png",
     "correct_answer": "B",
-    "difficulty": null,
+    "difficulty": "Medium",
     "tags": []
   },
   {
@@ -806,7 +806,7 @@
     "question_image": "images/e6545fa8_q.png",
     "answer_image": "images/e6545fa8_a.png",
     "correct_answer": "B",
-    "difficulty": null,
+    "difficulty": "Easy",
     "tags": []
   },
   {
@@ -833,7 +833,7 @@
     "question_image": "images/0b221d05_q.png",
     "answer_image": "images/0b221d05_a.png",
     "correct_answer": "D",
-    "difficulty": null,
+    "difficulty": "Medium",
     "tags": []
   },
   {
@@ -1049,7 +1049,7 @@
     "question_image": "images/930c2990_q.png",
     "answer_image": "images/930c2990_a.png",
     "correct_answer": "C",
-    "difficulty": null,
+    "difficulty": "Easy",
     "tags": []
   },
   {
@@ -1130,7 +1130,7 @@
     "question_image": "images/d0e614a6_q.png",
     "answer_image": "images/d0e614a6_a.png",
     "correct_answer": "D",
-    "difficulty": null,
+    "difficulty": "Hard",
     "tags": []
   },
   {
@@ -1202,7 +1202,7 @@
     "question_image": "images/6e6a3241_q.png",
     "answer_image": "images/6e6a3241_a.png",
     "correct_answer": "C",
-    "difficulty": null,
+    "difficulty": "Medium",
     "tags": []
   },
   {
@@ -1256,7 +1256,7 @@
     "question_image": "images/415ab1d2_q.png",
     "answer_image": "images/415ab1d2_a.png",
     "correct_answer": "A",
-    "difficulty": null,
+    "difficulty": "Hard",
     "tags": []
   },
   {
@@ -1337,7 +1337,7 @@
     "question_image": "images/5cf1bbc9_q.png",
     "answer_image": "images/5cf1bbc9_a.png",
     "correct_answer": "A",
-    "difficulty": null,
+    "difficulty": "Medium",
     "tags": []
   },
   {
@@ -1481,7 +1481,7 @@
     "question_image": "images/13294295_q.png",
     "answer_image": "images/13294295_a.png",
     "correct_answer": "B",
-    "difficulty": null,
+    "difficulty": "Easy",
     "tags": []
   },
   {
@@ -1535,7 +1535,7 @@
     "question_image": "images/606cdce7_q.png",
     "answer_image": "images/606cdce7_a.png",
     "correct_answer": "A",
-    "difficulty": "",
+    "difficulty": "Medium",
     "tags": []
   },
   {
@@ -1715,7 +1715,7 @@
     "question_image": "images/05bb1af9_q.png",
     "answer_image": "images/05bb1af9_a.png",
     "correct_answer": "A",
-    "difficulty": null,
+    "difficulty": "Hard",
     "tags": []
   },
   {
@@ -1760,7 +1760,7 @@
     "question_image": "images/12983c1e_q.png",
     "answer_image": "images/12983c1e_a.png",
     "correct_answer": "C",
-    "difficulty": "",
+    "difficulty": "Easy",
     "tags": []
   },
   {
@@ -1778,7 +1778,7 @@
     "question_image": "images/8368afd1_q.png",
     "answer_image": "images/8368afd1_a.png",
     "correct_answer": "B",
-    "difficulty": null,
+    "difficulty": "Easy",
     "tags": []
   },
   {
@@ -1805,7 +1805,7 @@
     "question_image": "images/720e51ac_q.png",
     "answer_image": "images/720e51ac_a.png",
     "correct_answer": "C",
-    "difficulty": null,
+    "difficulty": "Easy",
     "tags": []
   },
   {
@@ -1832,7 +1832,7 @@
     "question_image": "images/c307283c_q.png",
     "answer_image": "images/c307283c_a.png",
     "correct_answer": "C",
-    "difficulty": null,
+    "difficulty": "Medium",
     "tags": []
   },
   {
@@ -1958,7 +1958,7 @@
     "question_image": "images/0b46bad5_q.png",
     "answer_image": "images/0b46bad5_a.png",
     "correct_answer": "C",
-    "difficulty": null,
+    "difficulty": "Hard",
     "tags": []
   },
   {
@@ -1994,7 +1994,7 @@
     "question_image": "images/e7343559_q.png",
     "answer_image": "images/e7343559_a.png",
     "correct_answer": "C",
-    "difficulty": null,
+    "difficulty": "Easy",
     "tags": []
   },
   {
@@ -2102,7 +2102,7 @@
     "question_image": "images/2e0290c3_q.png",
     "answer_image": "images/2e0290c3_a.png",
     "correct_answer": "B",
-    "difficulty": null,
+    "difficulty": "Medium",
     "tags": []
   },
   {
@@ -2201,7 +2201,7 @@
     "question_image": "images/ecca0603_q.png",
     "answer_image": "images/ecca0603_a.png",
     "correct_answer": "A",
-    "difficulty": null,
+    "difficulty": "Medium",
     "tags": []
   },
   {
@@ -2255,7 +2255,7 @@
     "question_image": "images/6cb9bf45_q.png",
     "answer_image": "images/6cb9bf45_a.png",
     "correct_answer": "D",
-    "difficulty": null,
+    "difficulty": "Medium",
     "tags": []
   },
   {
@@ -2363,7 +2363,7 @@
     "question_image": "images/c41e5688_q.png",
     "answer_image": "images/c41e5688_a.png",
     "correct_answer": "D",
-    "difficulty": null,
+    "difficulty": "Medium",
     "tags": []
   },
   {
@@ -2390,7 +2390,7 @@
     "question_image": "images/a049f400_q.png",
     "answer_image": "images/a049f400_a.png",
     "correct_answer": "A",
-    "difficulty": null,
+    "difficulty": "Hard",
     "tags": []
   },
   {
@@ -2462,7 +2462,7 @@
     "question_image": "images/d62ad380_q.png",
     "answer_image": "images/d62ad380_a.png",
     "correct_answer": "C",
-    "difficulty": null,
+    "difficulty": "Medium",
     "tags": []
   },
   {
@@ -2570,7 +2570,7 @@
     "question_image": "images/d9733ed9_q.png",
     "answer_image": "images/d9733ed9_a.png",
     "correct_answer": "A",
-    "difficulty": null,
+    "difficulty": "Medium",
     "tags": []
   },
   {
@@ -2615,7 +2615,7 @@
     "question_image": "images/59a49431_q.png",
     "answer_image": "images/59a49431_a.png",
     "correct_answer": "D",
-    "difficulty": null,
+    "difficulty": "Easy",
     "tags": []
   },
   {
@@ -2930,7 +2930,7 @@
     "question_image": "images/d8539e09_q.png",
     "answer_image": "images/d8539e09_a.png",
     "correct_answer": "C",
-    "difficulty": null,
+    "difficulty": "Hard",
     "tags": []
   },
   {
@@ -2993,7 +2993,7 @@
     "question_image": "images/48fb34c8_q.png",
     "answer_image": "images/48fb34c8_a.png",
     "correct_answer": "D",
-    "difficulty": null,
+    "difficulty": "Hard",
     "tags": []
   },
   {
@@ -3227,7 +3227,7 @@
     "question_image": "images/1006cad7_q.png",
     "answer_image": "images/1006cad7_a.png",
     "correct_answer": "B",
-    "difficulty": null,
+    "difficulty": "Easy",
     "tags": []
   },
   {
@@ -3290,7 +3290,7 @@
     "question_image": "images/4acd05cd_q.png",
     "answer_image": null,
     "correct_answer": null,
-    "difficulty": null,
+    "difficulty": "Easy",
     "tags": []
   },
   {
@@ -3398,7 +3398,7 @@
     "question_image": "images/a35c7164_q.png",
     "answer_image": "images/a35c7164_a.png",
     "correct_answer": "B",
-    "difficulty": "",
+    "difficulty": "Hard",
     "tags": []
   },
   {
@@ -3488,7 +3488,7 @@
     "question_image": "images/d0cb49e8_q.png",
     "answer_image": "images/d0cb49e8_a.png",
     "correct_answer": "B",
-    "difficulty": null,
+    "difficulty": "Easy",
     "tags": []
   },
   {
@@ -3506,7 +3506,7 @@
     "question_image": "images/c9355dec_q.png",
     "answer_image": "images/c9355dec_a.png",
     "correct_answer": "A",
-    "difficulty": null,
+    "difficulty": "Easy",
     "tags": []
   },
   {
@@ -3551,7 +3551,7 @@
     "question_image": "images/78391fcc_q.png",
     "answer_image": "images/78391fcc_a.png",
     "correct_answer": "B",
-    "difficulty": null,
+    "difficulty": "Hard",
     "tags": []
   },
   {
@@ -3695,7 +3695,7 @@
     "question_image": "images/c4ea43ef_q.png",
     "answer_image": "images/c4ea43ef_a.png",
     "correct_answer": "B",
-    "difficulty": null,
+    "difficulty": "Hard",
     "tags": []
   },
   {
@@ -3848,7 +3848,7 @@
     "question_image": "images/f6b055dc_q.png",
     "answer_image": "images/f6b055dc_a.png",
     "correct_answer": "B",
-    "difficulty": null,
+    "difficulty": "Easy",
     "tags": []
   },
   {
@@ -3884,7 +3884,7 @@
     "question_image": "images/1efd8202_q.png",
     "answer_image": "images/1efd8202_a.png",
     "correct_answer": "A",
-    "difficulty": null,
+    "difficulty": "Easy",
     "tags": []
   },
   {
@@ -3911,7 +3911,7 @@
     "question_image": "images/295a41f0_q.png",
     "answer_image": "images/295a41f0_a.png",
     "correct_answer": "B",
-    "difficulty": null,
+    "difficulty": "Medium",
     "tags": []
   },
   {
@@ -4010,7 +4010,7 @@
     "question_image": "images/9d0396d4_q.png",
     "answer_image": "images/9d0396d4_a.png",
     "correct_answer": "C",
-    "difficulty": null,
+    "difficulty": "Hard",
     "tags": []
   },
   {
@@ -4055,7 +4055,7 @@
     "question_image": "images/2704399f_q.png",
     "answer_image": "images/2704399f_a.png",
     "correct_answer": "A",
-    "difficulty": null,
+    "difficulty": "Medium",
     "tags": []
   },
   {
@@ -4199,7 +4199,7 @@
     "question_image": "images/ccc3ad6b_q.png",
     "answer_image": "images/ccc3ad6b_a.png",
     "correct_answer": "A",
-    "difficulty": null,
+    "difficulty": "Easy",
     "tags": []
   },
   {
@@ -4343,7 +4343,7 @@
     "question_image": "images/f0773a55_q.png",
     "answer_image": "images/f0773a55_a.png",
     "correct_answer": "A",
-    "difficulty": null,
+    "difficulty": "Medium",
     "tags": []
   },
   {
@@ -4370,7 +4370,7 @@
     "question_image": "images/0ea7ef01_q.png",
     "answer_image": "images/0ea7ef01_a.png",
     "correct_answer": "C",
-    "difficulty": null,
+    "difficulty": "Easy",
     "tags": []
   },
   {
@@ -4424,7 +4424,7 @@
     "question_image": "images/5f46fc76_q.png",
     "answer_image": "images/5f46fc76_a.png",
     "correct_answer": "C",
-    "difficulty": null,
+    "difficulty": "Easy",
     "tags": []
   },
   {
@@ -4631,7 +4631,7 @@
     "question_image": "images/5b7599a6_q.png",
     "answer_image": "images/5b7599a6_a.png",
     "correct_answer": "C",
-    "difficulty": null,
+    "difficulty": "Hard",
     "tags": []
   },
   {
@@ -4676,7 +4676,7 @@
     "question_image": "images/d02193fb_q.png",
     "answer_image": "images/d02193fb_a.png",
     "correct_answer": "D",
-    "difficulty": null,
+    "difficulty": "Medium",
     "tags": []
   },
   {
@@ -4811,7 +4811,7 @@
     "question_image": "images/27f5fff3_q.png",
     "answer_image": "images/27f5fff3_a.png",
     "correct_answer": "A",
-    "difficulty": null,
+    "difficulty": "Hard",
     "tags": []
   },
   {
@@ -4919,7 +4919,7 @@
     "question_image": "images/a8e6bd75_q.png",
     "answer_image": "images/a8e6bd75_a.png",
     "correct_answer": "",
-    "difficulty": null,
+    "difficulty": "Easy",
     "tags": []
   },
   {
@@ -5072,7 +5072,7 @@
     "question_image": "images/7f2524bf_q.png",
     "answer_image": "images/7f2524bf_a.png",
     "correct_answer": "A",
-    "difficulty": "",
+    "difficulty": "Easy",
     "tags": []
   },
   {
@@ -5090,7 +5090,7 @@
     "question_image": "images/02060533_q.png",
     "answer_image": "images/02060533_a.png",
     "correct_answer": "A",
-    "difficulty": null,
+    "difficulty": "Hard",
     "tags": []
   },
   {
@@ -5126,7 +5126,7 @@
     "question_image": "images/e9aed539_q.png",
     "answer_image": null,
     "correct_answer": null,
-    "difficulty": null,
+    "difficulty": "Easy",
     "tags": []
   },
   {
@@ -5162,7 +5162,7 @@
     "question_image": "images/4fbffc0a_q.png",
     "answer_image": "images/4fbffc0a_a.png",
     "correct_answer": "A",
-    "difficulty": null,
+    "difficulty": "Easy",
     "tags": []
   },
   {
@@ -5396,7 +5396,7 @@
     "question_image": "images/1ee962ec_q.png",
     "answer_image": null,
     "correct_answer": null,
-    "difficulty": null,
+    "difficulty": "Easy",
     "tags": []
   },
   {
@@ -5657,7 +5657,7 @@
     "question_image": "images/6ce95fc8_q.png",
     "answer_image": "images/6ce95fc8_a.png",
     "correct_answer": "D",
-    "difficulty": null,
+    "difficulty": "Hard",
     "tags": []
   },
   {
@@ -5702,7 +5702,7 @@
     "question_image": "images/252a3b3a_q.png",
     "answer_image": "images/252a3b3a_a.png",
     "correct_answer": "B",
-    "difficulty": null,
+    "difficulty": "Medium",
     "tags": []
   },
   {
@@ -5747,7 +5747,7 @@
     "question_image": "images/cc6ccd71_q.png",
     "answer_image": "images/cc6ccd71_a.png",
     "correct_answer": "C",
-    "difficulty": "",
+    "difficulty": "Medium",
     "tags": []
   },
   {
@@ -5774,7 +5774,7 @@
     "question_image": "images/b39d74a0_q.png",
     "answer_image": null,
     "correct_answer": null,
-    "difficulty": null,
+    "difficulty": "Easy",
     "tags": []
   },
   {
@@ -5792,7 +5792,7 @@
     "question_image": "images/09d21d79_q.png",
     "answer_image": "images/09d21d79_a.png",
     "correct_answer": "-24",
-    "difficulty": null,
+    "difficulty": "Hard",
     "tags": []
   },
   {
@@ -5810,7 +5810,7 @@
     "question_image": "images/95d1c344_q.png",
     "answer_image": "images/95d1c344_a.png",
     "correct_answer": "B",
-    "difficulty": null,
+    "difficulty": "Medium",
     "tags": []
   },
   {
@@ -5855,7 +5855,7 @@
     "question_image": "images/4ca30186_q.png",
     "answer_image": "images/4ca30186_a.png",
     "correct_answer": "C",
-    "difficulty": null,
+    "difficulty": "Easy",
     "tags": []
   },
   {
@@ -5945,7 +5945,7 @@
     "question_image": "images/271ffad7_q.png",
     "answer_image": "images/271ffad7_a.png",
     "correct_answer": "B",
-    "difficulty": null,
+    "difficulty": "Hard",
     "tags": []
   },
   {
@@ -6206,7 +6206,7 @@
     "question_image": "images/7bd10ef3_q.png",
     "answer_image": "images/7bd10ef3_a.png",
     "correct_answer": "A",
-    "difficulty": null,
+    "difficulty": "Hard",
     "tags": []
   },
   {
@@ -6422,7 +6422,7 @@
     "question_image": "images/d139cf4b_q.png",
     "answer_image": "images/d139cf4b_a.png",
     "correct_answer": "B",
-    "difficulty": null,
+    "difficulty": "Hard",
     "tags": []
   },
   {
@@ -6440,7 +6440,7 @@
     "question_image": "images/75a32330_q.png",
     "answer_image": null,
     "correct_answer": null,
-    "difficulty": null,
+    "difficulty": "Medium",
     "tags": []
   },
   {
@@ -6476,7 +6476,7 @@
     "question_image": "images/66bce0c1_q.png",
     "answer_image": "images/66bce0c1_a.png",
     "correct_answer": "B",
-    "difficulty": "",
+    "difficulty": "Hard",
     "tags": []
   },
   {
@@ -6521,7 +6521,7 @@
     "question_image": "images/197bed38_q.png",
     "answer_image": "images/197bed38_a.png",
     "correct_answer": "A",
-    "difficulty": null,
+    "difficulty": "Medium",
     "tags": []
   },
   {
@@ -6566,7 +6566,7 @@
     "question_image": "images/db888cd6_q.png",
     "answer_image": "images/db888cd6_a.png",
     "correct_answer": "D",
-    "difficulty": null,
+    "difficulty": "Medium",
     "tags": []
   },
   {
@@ -6575,7 +6575,7 @@
     "question_image": "images/df71424b_q.png",
     "answer_image": "images/df71424b_a.png",
     "correct_answer": "D",
-    "difficulty": null,
+    "difficulty": "Hard",
     "tags": []
   },
   {
@@ -6584,7 +6584,7 @@
     "question_image": "images/6ecdbcb4_q.png",
     "answer_image": "images/6ecdbcb4_a.png",
     "correct_answer": "B",
-    "difficulty": null,
+    "difficulty": "Medium",
     "tags": []
   },
   {
@@ -6728,7 +6728,7 @@
     "question_image": "images/2d394c28_q.png",
     "answer_image": "images/2d394c28_a.png",
     "correct_answer": "C",
-    "difficulty": null,
+    "difficulty": "Easy",
     "tags": []
   },
   {
@@ -6764,7 +6764,7 @@
     "question_image": "images/22fd3e1f_q.png",
     "answer_image": "images/22fd3e1f_a.png",
     "correct_answer": "D",
-    "difficulty": null,
+    "difficulty": "Hard",
     "tags": []
   },
   {
@@ -6809,7 +6809,7 @@
     "question_image": "images/d675744f_q.png",
     "answer_image": "images/d675744f_a.png",
     "correct_answer": "D",
-    "difficulty": null,
+    "difficulty": "Medium",
     "tags": []
   },
   {
@@ -6899,7 +6899,7 @@
     "question_image": "images/44076c7d_q.png",
     "answer_image": "images/44076c7d_a.png",
     "correct_answer": "D",
-    "difficulty": null,
+    "difficulty": "Medium",
     "tags": []
   },
   {
@@ -6917,7 +6917,7 @@
     "question_image": "images/3f8d5876_q.png",
     "answer_image": "images/3f8d5876_a.png",
     "correct_answer": "C",
-    "difficulty": null,
+    "difficulty": "Easy",
     "tags": []
   },
   {
@@ -6998,7 +6998,7 @@
     "question_image": "images/d3f7c429_q.png",
     "answer_image": "images/d3f7c429_a.png",
     "correct_answer": "C",
-    "difficulty": null,
+    "difficulty": "Easy",
     "tags": []
   },
   {
@@ -7124,7 +7124,7 @@
     "question_image": "images/7fe7cf26_q.png",
     "answer_image": null,
     "correct_answer": null,
-    "difficulty": null,
+    "difficulty": "Easy",
     "tags": []
   },
   {
@@ -7196,7 +7196,7 @@
     "question_image": "images/5e63b9cf_q.png",
     "answer_image": "images/5e63b9cf_a.png",
     "correct_answer": "B",
-    "difficulty": null,
+    "difficulty": "Easy",
     "tags": []
   },
   {
@@ -7322,7 +7322,7 @@
     "question_image": "images/d0e8e8f5_q.png",
     "answer_image": "images/d0e8e8f5_a.png",
     "correct_answer": "D",
-    "difficulty": null,
+    "difficulty": "Easy",
     "tags": []
   },
   {
@@ -7403,7 +7403,7 @@
     "question_image": "images/9ff88bb5_q.png",
     "answer_image": "images/9ff88bb5_a.png",
     "correct_answer": "B",
-    "difficulty": null,
+    "difficulty": "Medium",
     "tags": []
   },
   {
@@ -7619,7 +7619,7 @@
     "question_image": "images/5910bfff_q.png",
     "answer_image": "images/5910bfff_a.png",
     "correct_answer": "A",
-    "difficulty": null,
+    "difficulty": "Hard",
     "tags": []
   },
   {
@@ -7673,7 +7673,7 @@
     "question_image": "images/ebe4bde0_q.png",
     "answer_image": "images/ebe4bde0_a.png",
     "correct_answer": "C",
-    "difficulty": null,
+    "difficulty": "Easy",
     "tags": []
   },
   {
@@ -7763,7 +7763,7 @@
     "question_image": "images/e1391dd6_q.png",
     "answer_image": "images/e1391dd6_a.png",
     "correct_answer": null,
-    "difficulty": "",
+    "difficulty": "Medium",
     "tags": []
   },
   {
@@ -7817,7 +7817,7 @@
     "question_image": "images/d46da42c_q.png",
     "answer_image": "images/d46da42c_a.png",
     "correct_answer": "D",
-    "difficulty": null,
+    "difficulty": "Easy",
     "tags": []
   },
   {
@@ -7844,7 +7844,7 @@
     "question_image": "images/f1fa0821_q.png",
     "answer_image": "images/f1fa0821_a.png",
     "correct_answer": "B",
-    "difficulty": null,
+    "difficulty": "Medium",
     "tags": []
   },
   {
@@ -8042,7 +8042,7 @@
     "question_image": "images/5c7d5744_q.png",
     "answer_image": "images/5c7d5744_a.png",
     "correct_answer": "B",
-    "difficulty": null,
+    "difficulty": "Easy",
     "tags": []
   },
   {
@@ -8186,7 +8186,7 @@
     "question_image": "images/ca4ee54e_q.png",
     "answer_image": "images/ca4ee54e_a.png",
     "correct_answer": "B",
-    "difficulty": null,
+    "difficulty": "Easy",
     "tags": []
   },
   {
@@ -8204,7 +8204,7 @@
     "question_image": "images/876a731c_q.png",
     "answer_image": "images/876a731c_a.png",
     "correct_answer": "A",
-    "difficulty": "",
+    "difficulty": "Medium",
     "tags": []
   },
   {
@@ -8303,7 +8303,7 @@
     "question_image": "images/2c5c22d0_q.png",
     "answer_image": "images/2c5c22d0_a.png",
     "correct_answer": "C",
-    "difficulty": null,
+    "difficulty": "Hard",
     "tags": []
   },
   {
@@ -8339,7 +8339,7 @@
     "question_image": "images/928498f3_q.png",
     "answer_image": "images/928498f3_a.png",
     "correct_answer": "A",
-    "difficulty": null,
+    "difficulty": "Medium",
     "tags": []
   },
   {
@@ -8384,7 +8384,7 @@
     "question_image": "images/fc3dfa26_q.png",
     "answer_image": "images/fc3dfa26_a.png",
     "correct_answer": "C",
-    "difficulty": null,
+    "difficulty": "Hard",
     "tags": []
   },
   {
@@ -8618,7 +8618,7 @@
     "question_image": "images/f5e8ccf1_q.png",
     "answer_image": "images/f5e8ccf1_a.png",
     "correct_answer": "B",
-    "difficulty": null,
+    "difficulty": "Medium",
     "tags": []
   },
   {
@@ -8654,7 +8654,7 @@
     "question_image": "images/1073d70c_q.png",
     "answer_image": "images/1073d70c_a.png",
     "correct_answer": "D",
-    "difficulty": "",
+    "difficulty": "Hard",
     "tags": []
   },
   {
@@ -8672,7 +8672,7 @@
     "question_image": "images/aa95fb33_q.png",
     "answer_image": null,
     "correct_answer": null,
-    "difficulty": null,
+    "difficulty": "Medium",
     "tags": []
   },
   {
@@ -8789,7 +8789,7 @@
     "question_image": "images/494d247d_q.png",
     "answer_image": "images/494d247d_a.png",
     "correct_answer": "C",
-    "difficulty": null,
+    "difficulty": "Easy",
     "tags": []
   },
   {
@@ -8888,7 +8888,7 @@
     "question_image": "images/4d037075_q.png",
     "answer_image": "images/4d037075_a.png",
     "correct_answer": "C",
-    "difficulty": null,
+    "difficulty": "Hard",
     "tags": []
   },
   {
@@ -9122,7 +9122,7 @@
     "question_image": "images/1a722d7d_q.png",
     "answer_image": "images/1a722d7d_a.png",
     "correct_answer": "D",
-    "difficulty": null,
+    "difficulty": "Hard",
     "tags": []
   },
   {
@@ -9293,7 +9293,7 @@
     "question_image": "images/b1b5300b_q.png",
     "answer_image": "images/b1b5300b_a.png",
     "correct_answer": "A",
-    "difficulty": null,
+    "difficulty": "Medium",
     "tags": []
   },
   {
@@ -9437,7 +9437,7 @@
     "question_image": "images/4c774b00_q.png",
     "answer_image": "images/4c774b00_a.png",
     "correct_answer": "A",
-    "difficulty": null,
+    "difficulty": "Medium",
     "tags": []
   },
   {
@@ -9446,7 +9446,7 @@
     "question_image": "images/1353b86e_q.png",
     "answer_image": "images/1353b86e_a.png",
     "correct_answer": "D",
-    "difficulty": null,
+    "difficulty": "Easy",
     "tags": []
   },
   {
@@ -9455,7 +9455,7 @@
     "question_image": "images/29fa7970_q.png",
     "answer_image": "images/29fa7970_a.png",
     "correct_answer": "D",
-    "difficulty": null,
+    "difficulty": "Easy",
     "tags": []
   },
   {
@@ -9464,7 +9464,7 @@
     "question_image": "images/d89c1513_q.png",
     "answer_image": "images/d89c1513_a.png",
     "correct_answer": "D",
-    "difficulty": null,
+    "difficulty": "Easy",
     "tags": []
   },
   {
@@ -9473,7 +9473,7 @@
     "question_image": "images/52f9a246_q.png",
     "answer_image": "images/52f9a246_a.png",
     "correct_answer": "A",
-    "difficulty": null,
+    "difficulty": "Easy",
     "tags": []
   },
   {
@@ -9518,7 +9518,7 @@
     "question_image": "images/8baf2118_q.png",
     "answer_image": "images/8baf2118_a.png",
     "correct_answer": "B",
-    "difficulty": null,
+    "difficulty": "Easy",
     "tags": []
   },
   {
@@ -9545,7 +9545,7 @@
     "question_image": "images/46545dd6_q.png",
     "answer_image": "images/46545dd6_a.png",
     "correct_answer": "B",
-    "difficulty": null,
+    "difficulty": "Easy",
     "tags": []
   },
   {
@@ -9581,7 +9581,7 @@
     "question_image": "images/fb866265_q.png",
     "answer_image": "images/fb866265_a.png",
     "correct_answer": "A",
-    "difficulty": null,
+    "difficulty": "Hard",
     "tags": []
   },
   {
@@ -9590,7 +9590,7 @@
     "question_image": "images/bd90f87e_q.png",
     "answer_image": "images/bd90f87e_a.png",
     "correct_answer": "B",
-    "difficulty": null,
+    "difficulty": "Easy",
     "tags": []
   },
   {
@@ -9599,7 +9599,7 @@
     "question_image": "images/15d87c0f_q.png",
     "answer_image": "images/15d87c0f_a.png",
     "correct_answer": "A",
-    "difficulty": null,
+    "difficulty": "Easy",
     "tags": []
   },
   {
@@ -9716,7 +9716,7 @@
     "question_image": "images/15ce8207_q.png",
     "answer_image": null,
     "correct_answer": null,
-    "difficulty": null,
+    "difficulty": "Easy",
     "tags": []
   },
   {
@@ -9788,7 +9788,7 @@
     "question_image": "images/fe6a49d6_q.png",
     "answer_image": "images/fe6a49d6_a.png",
     "correct_answer": "B",
-    "difficulty": null,
+    "difficulty": "Easy",
     "tags": []
   },
   {
@@ -9851,7 +9851,7 @@
     "question_image": "images/2e74e403_q.png",
     "answer_image": "images/2e74e403_a.png",
     "correct_answer": "C",
-    "difficulty": null,
+    "difficulty": "Medium",
     "tags": []
   },
   {
@@ -9878,7 +9878,7 @@
     "question_image": "images/2e8027b0_q.png",
     "answer_image": "images/2e8027b0_a.png",
     "correct_answer": "A",
-    "difficulty": null,
+    "difficulty": "Hard",
     "tags": []
   },
   {
@@ -9995,7 +9995,7 @@
     "question_image": "images/03a16790_q.png",
     "answer_image": "images/03a16790_a.png",
     "correct_answer": "B",
-    "difficulty": null,
+    "difficulty": "Medium",
     "tags": []
   },
   {
@@ -10175,7 +10175,7 @@
     "question_image": "images/d65b9a87_q.png",
     "answer_image": "images/d65b9a87_a.png",
     "correct_answer": "A",
-    "difficulty": null,
+    "difficulty": "Hard",
     "tags": []
   },
   {
@@ -10229,7 +10229,7 @@
     "question_image": "images/d230e963_q.png",
     "answer_image": "images/d230e963_a.png",
     "correct_answer": "A",
-    "difficulty": null,
+    "difficulty": "Easy",
     "tags": []
   },
   {
@@ -10247,7 +10247,7 @@
     "question_image": "images/241f1db7_q.png",
     "answer_image": "images/241f1db7_a.png",
     "correct_answer": "B",
-    "difficulty": null,
+    "difficulty": "Hard",
     "tags": []
   },
   {
@@ -10256,7 +10256,7 @@
     "question_image": "images/578e26ae_q.png",
     "answer_image": "images/578e26ae_a.png",
     "correct_answer": "A",
-    "difficulty": "",
+    "difficulty": "Medium",
     "tags": []
   },
   {
@@ -10274,7 +10274,7 @@
     "question_image": "images/7fd284ac_q.png",
     "answer_image": "images/7fd284ac_a.png",
     "correct_answer": "B",
-    "difficulty": null,
+    "difficulty": "Medium",
     "tags": []
   },
   {
@@ -10319,7 +10319,7 @@
     "question_image": "images/ecbdbe84_q.png",
     "answer_image": "images/ecbdbe84_a.png",
     "correct_answer": "D",
-    "difficulty": null,
+    "difficulty": "Hard",
     "tags": []
   },
   {
@@ -10328,7 +10328,7 @@
     "question_image": "images/f8a322d9_q.png",
     "answer_image": "images/f8a322d9_a.png",
     "correct_answer": "B",
-    "difficulty": null,
+    "difficulty": "Hard",
     "tags": []
   },
   {
@@ -10364,7 +10364,7 @@
     "question_image": "images/ec7b0eb8_q.png",
     "answer_image": "images/ec7b0eb8_a.png",
     "correct_answer": "B",
-    "difficulty": null,
+    "difficulty": "Easy",
     "tags": []
   },
   {
@@ -10391,7 +10391,7 @@
     "question_image": "images/e17babed_q.png",
     "answer_image": "images/e17babed_a.png",
     "correct_answer": "C",
-    "difficulty": null,
+    "difficulty": "Medium",
     "tags": []
   },
   {
@@ -10472,7 +10472,7 @@
     "question_image": "images/1e1027a7_q.png",
     "answer_image": "images/1e1027a7_a.png",
     "correct_answer": "D",
-    "difficulty": null,
+    "difficulty": "Hard",
     "tags": []
   },
   {
@@ -10517,7 +10517,7 @@
     "question_image": "images/13f67ddc_q.png",
     "answer_image": "images/13f67ddc_a.png",
     "correct_answer": "C",
-    "difficulty": null,
+    "difficulty": "Easy",
     "tags": []
   },
   {
@@ -10544,7 +10544,7 @@
     "question_image": "images/e7d48c8a_q.png",
     "answer_image": "images/e7d48c8a_a.png",
     "correct_answer": "C",
-    "difficulty": null,
+    "difficulty": "Hard",
     "tags": []
   },
   {
@@ -10625,7 +10625,7 @@
     "question_image": "images/3d985614_q.png",
     "answer_image": "images/3d985614_a.png",
     "correct_answer": "C",
-    "difficulty": "",
+    "difficulty": "Medium",
     "tags": []
   },
   {
@@ -10652,7 +10652,7 @@
     "question_image": "images/d94018fd_q.png",
     "answer_image": "images/d94018fd_a.png",
     "correct_answer": "B",
-    "difficulty": "",
+    "difficulty": "Medium",
     "tags": []
   },
   {
@@ -10787,7 +10787,7 @@
     "question_image": "images/bf47ad54_q.png",
     "answer_image": "images/bf47ad54_a.png",
     "correct_answer": "A",
-    "difficulty": null,
+    "difficulty": "Hard",
     "tags": []
   },
   {
@@ -10823,7 +10823,7 @@
     "question_image": "images/7d68096f_q.png",
     "answer_image": "images/7d68096f_a.png",
     "correct_answer": "D",
-    "difficulty": null,
+    "difficulty": "Hard",
     "tags": []
   },
   {
@@ -11039,7 +11039,7 @@
     "question_image": "images/16988f9c_q.png",
     "answer_image": "images/16988f9c_a.png",
     "correct_answer": "D",
-    "difficulty": null,
+    "difficulty": "Easy",
     "tags": []
   },
   {
@@ -11084,7 +11084,7 @@
     "question_image": "images/c54b92a2_q.png",
     "answer_image": "images/c54b92a2_a.png",
     "correct_answer": "B",
-    "difficulty": null,
+    "difficulty": "Easy",
     "tags": []
   },
   {
@@ -11093,7 +11093,7 @@
     "question_image": "images/3c5b19ef_q.png",
     "answer_image": "images/3c5b19ef_a.png",
     "correct_answer": "A",
-    "difficulty": null,
+    "difficulty": "Medium",
     "tags": []
   },
   {
@@ -11129,7 +11129,7 @@
     "question_image": "images/ae32cc3c_q.png",
     "answer_image": "images/ae32cc3c_a.png",
     "correct_answer": "C",
-    "difficulty": null,
+    "difficulty": "Easy",
     "tags": []
   },
   {
@@ -11156,7 +11156,7 @@
     "question_image": "images/c5ee6ac0_q.png",
     "answer_image": "images/c5ee6ac0_a.png",
     "correct_answer": "A",
-    "difficulty": null,
+    "difficulty": "Easy",
     "tags": []
   },
   {
@@ -11246,7 +11246,7 @@
     "question_image": "images/d1db8def_q.png",
     "answer_image": "images/d1db8def_a.png",
     "correct_answer": "C",
-    "difficulty": null,
+    "difficulty": "Easy",
     "tags": []
   },
   {
@@ -11264,7 +11264,7 @@
     "question_image": "images/4626102e_q.png",
     "answer_image": "images/4626102e_a.png",
     "correct_answer": "C",
-    "difficulty": "",
+    "difficulty": "Hard",
     "tags": []
   },
   {
@@ -11372,7 +11372,7 @@
     "question_image": "images/6e3ab4bf_q.png",
     "answer_image": "images/6e3ab4bf_a.png",
     "correct_answer": "D",
-    "difficulty": null,
+    "difficulty": "Easy",
     "tags": []
   },
   {
@@ -11390,7 +11390,7 @@
     "question_image": "images/90ba8f98_q.png",
     "answer_image": "images/90ba8f98_a.png",
     "correct_answer": "D",
-    "difficulty": null,
+    "difficulty": "Medium",
     "tags": []
   },
   {
@@ -11435,7 +11435,7 @@
     "question_image": "images/c141366d_q.png",
     "answer_image": "images/c141366d_a.png",
     "correct_answer": "A",
-    "difficulty": null,
+    "difficulty": "Easy",
     "tags": []
   },
   {
@@ -11480,7 +11480,7 @@
     "question_image": "images/4bb25495_q.png",
     "answer_image": "images/4bb25495_a.png",
     "correct_answer": "B",
-    "difficulty": null,
+    "difficulty": "Easy",
     "tags": []
   },
   {
@@ -11507,7 +11507,7 @@
     "question_image": "images/b6569d0e_q.png",
     "answer_image": "images/b6569d0e_a.png",
     "correct_answer": "B",
-    "difficulty": null,
+    "difficulty": "Medium",
     "tags": []
   },
   {
@@ -11579,7 +11579,7 @@
     "question_image": "images/57481175_q.png",
     "answer_image": "images/57481175_a.png",
     "correct_answer": "B",
-    "difficulty": null,
+    "difficulty": "Easy",
     "tags": []
   },
   {
@@ -11768,7 +11768,7 @@
     "question_image": "images/e821a26d_q.png",
     "answer_image": "images/e821a26d_a.png",
     "correct_answer": "D",
-    "difficulty": null,
+    "difficulty": "Hard",
     "tags": []
   },
   {
@@ -11786,7 +11786,7 @@
     "question_image": "images/9eb896c5_q.png",
     "answer_image": "images/9eb896c5_a.png",
     "correct_answer": "A",
-    "difficulty": null,
+    "difficulty": "Medium",
     "tags": []
   },
   {
@@ -11831,7 +11831,7 @@
     "question_image": "images/d112bc9d_q.png",
     "answer_image": "images/d112bc9d_a.png",
     "correct_answer": "C",
-    "difficulty": null,
+    "difficulty": "Easy",
     "tags": []
   },
   {
@@ -11858,7 +11858,7 @@
     "question_image": "images/93779b53_q.png",
     "answer_image": "images/93779b53_a.png",
     "correct_answer": "B",
-    "difficulty": "",
+    "difficulty": "Easy",
     "tags": []
   },
   {
@@ -11885,7 +11885,7 @@
     "question_image": "images/a067c926_q.png",
     "answer_image": "images/a067c926_a.png",
     "correct_answer": "D",
-    "difficulty": null,
+    "difficulty": "Easy",
     "tags": []
   },
   {
@@ -11912,7 +11912,7 @@
     "question_image": "images/5f3ee607_q.png",
     "answer_image": "images/5f3ee607_a.png",
     "correct_answer": "B",
-    "difficulty": null,
+    "difficulty": "Easy",
     "tags": []
   },
   {
@@ -11939,7 +11939,7 @@
     "question_image": "images/4cc05491_q.png",
     "answer_image": "images/4cc05491_a.png",
     "correct_answer": "C",
-    "difficulty": null,
+    "difficulty": "Medium",
     "tags": []
   },
   {
@@ -12029,7 +12029,7 @@
     "question_image": "images/89f20d9e_q.png",
     "answer_image": "images/89f20d9e_a.png",
     "correct_answer": "B",
-    "difficulty": null,
+    "difficulty": "Hard",
     "tags": []
   },
   {
@@ -12065,7 +12065,7 @@
     "question_image": "images/79137c1b_q.png",
     "answer_image": "images/79137c1b_a.png",
     "correct_answer": "B",
-    "difficulty": null,
+    "difficulty": "Hard",
     "tags": []
   },
   {
@@ -12218,7 +12218,7 @@
     "question_image": "images/a3384df0_q.png",
     "answer_image": "images/a3384df0_a.png",
     "correct_answer": "A",
-    "difficulty": null,
+    "difficulty": "Medium",
     "tags": []
   },
   {
@@ -12227,7 +12227,7 @@
     "question_image": "images/6670e407_q.png",
     "answer_image": "images/6670e407_a.png",
     "correct_answer": "C",
-    "difficulty": null,
+    "difficulty": "Easy",
     "tags": []
   },
   {
@@ -12380,7 +12380,7 @@
     "question_image": "images/50b2807e_q.png",
     "answer_image": "images/50b2807e_a.png",
     "correct_answer": "D",
-    "difficulty": null,
+    "difficulty": "Medium",
     "tags": []
   },
   {
@@ -12425,7 +12425,7 @@
     "question_image": "images/24a1e6a7_q.png",
     "answer_image": "images/24a1e6a7_a.png",
     "correct_answer": "B",
-    "difficulty": null,
+    "difficulty": "Medium",
     "tags": []
   },
   {
@@ -12452,7 +12452,7 @@
     "question_image": "images/39aa146d_q.png",
     "answer_image": "images/39aa146d_a.png",
     "correct_answer": "C",
-    "difficulty": null,
+    "difficulty": "Easy",
     "tags": []
   },
   {
@@ -12533,7 +12533,7 @@
     "question_image": "images/8d63b6f1_q.png",
     "answer_image": "images/8d63b6f1_a.png",
     "correct_answer": "C",
-    "difficulty": null,
+    "difficulty": "Easy",
     "tags": []
   },
   {
@@ -12542,7 +12542,7 @@
     "question_image": "images/25fc031a_q.png",
     "answer_image": "images/25fc031a_a.png",
     "correct_answer": "A",
-    "difficulty": null,
+    "difficulty": "Medium",
     "tags": []
   },
   {
@@ -12875,7 +12875,7 @@
     "question_image": "images/096c7ef5_q.png",
     "answer_image": "images/096c7ef5_a.png",
     "correct_answer": "B",
-    "difficulty": null,
+    "difficulty": "Medium",
     "tags": []
   },
   {
@@ -12920,7 +12920,7 @@
     "question_image": "images/a07ed090_q.png",
     "answer_image": "images/a07ed090_a.png",
     "correct_answer": "C",
-    "difficulty": null,
+    "difficulty": "Hard",
     "tags": []
   },
   {
@@ -13136,7 +13136,7 @@
     "question_image": "images/52f7b898_q.png",
     "answer_image": "images/52f7b898_a.png",
     "correct_answer": "C",
-    "difficulty": null,
+    "difficulty": "Hard",
     "tags": []
   },
   {
@@ -13280,7 +13280,7 @@
     "question_image": "images/4c95c7d4_q.png",
     "answer_image": "images/4c95c7d4_a.png",
     "correct_answer": "C",
-    "difficulty": null,
+    "difficulty": "Hard",
     "tags": []
   },
   {
@@ -13307,7 +13307,7 @@
     "question_image": "images/933fee1a_q.png",
     "answer_image": "images/933fee1a_a.png",
     "correct_answer": "B",
-    "difficulty": null,
+    "difficulty": "Medium",
     "tags": []
   },
   {
@@ -13325,7 +13325,7 @@
     "question_image": "images/2f7c92ad_q.png",
     "answer_image": "images/2f7c92ad_a.png",
     "correct_answer": "C",
-    "difficulty": "",
+    "difficulty": "Medium",
     "tags": []
   },
   {
@@ -13361,7 +13361,7 @@
     "question_image": "images/9d078710_q.png",
     "answer_image": "images/9d078710_a.png",
     "correct_answer": "A",
-    "difficulty": null,
+    "difficulty": "Easy",
     "tags": []
   },
   {
@@ -13469,7 +13469,7 @@
     "question_image": "images/a4c05a1b_q.png",
     "answer_image": "images/a4c05a1b_a.png",
     "correct_answer": "B",
-    "difficulty": null,
+    "difficulty": "Medium",
     "tags": []
   },
   {
@@ -13721,7 +13721,7 @@
     "question_image": "images/2adbf1b1_q.png",
     "answer_image": "images/2adbf1b1_a.png",
     "correct_answer": "C",
-    "difficulty": null,
+    "difficulty": "Medium",
     "tags": []
   },
   {
@@ -13937,7 +13937,7 @@
     "question_image": "images/dc71597b_q.png",
     "answer_image": "images/dc71597b_a.png",
     "correct_answer": "A",
-    "difficulty": "",
+    "difficulty": "Hard",
     "tags": []
   },
   {
@@ -14306,7 +14306,7 @@
     "question_image": "images/bf8d843e_q.png",
     "answer_image": "images/bf8d843e_a.png",
     "correct_answer": "B",
-    "difficulty": "",
+    "difficulty": "Medium",
     "tags": []
   },
   {
@@ -14342,7 +14342,7 @@
     "question_image": "images/981275d2_q.png",
     "answer_image": "images/981275d2_a.png",
     "correct_answer": "A",
-    "difficulty": null,
+    "difficulty": "Hard",
     "tags": []
   },
   {
@@ -14414,7 +14414,7 @@
     "question_image": "images/95ba2d09_q.png",
     "answer_image": "images/95ba2d09_a.png",
     "correct_answer": "C",
-    "difficulty": null,
+    "difficulty": "Medium",
     "tags": []
   },
   {
@@ -14423,7 +14423,7 @@
     "question_image": "images/adae6543_q.png",
     "answer_image": "images/adae6543_a.png",
     "correct_answer": "D",
-    "difficulty": null,
+    "difficulty": "Hard",
     "tags": []
   },
   {
@@ -14441,7 +14441,7 @@
     "question_image": "images/0815a5af_q.png",
     "answer_image": "images/0815a5af_a.png",
     "correct_answer": "B",
-    "difficulty": null,
+    "difficulty": "Medium",
     "tags": []
   },
   {
@@ -14567,7 +14567,7 @@
     "question_image": "images/eb70d2d0_q.png",
     "answer_image": "images/eb70d2d0_a.png",
     "correct_answer": "24.5, 49/2",
-    "difficulty": null,
+    "difficulty": "Hard",
     "tags": []
   },
   {
@@ -14657,7 +14657,7 @@
     "question_image": "images/099526fc_q.png",
     "answer_image": "images/099526fc_a.png",
     "correct_answer": "B",
-    "difficulty": null,
+    "difficulty": "Hard",
     "tags": []
   },
   {
@@ -14720,7 +14720,7 @@
     "question_image": "images/a38c0183_q.png",
     "answer_image": "images/a38c0183_a.png",
     "correct_answer": "A",
-    "difficulty": null,
+    "difficulty": "Hard",
     "tags": []
   },
   {
@@ -14909,7 +14909,7 @@
     "question_image": "images/37dde49f_q.png",
     "answer_image": "images/37dde49f_a.png",
     "correct_answer": "D",
-    "difficulty": null,
+    "difficulty": "Medium",
     "tags": []
   },
   {

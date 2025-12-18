@@ -129,6 +129,11 @@ export function useQuestions() {
     });
     setQuestions(newQuestions);
 
+    // Recalculate allTags to remove orphaned tags
+    const remainingTags = new Set<string>();
+    newQuestions.forEach((q) => q.tags.forEach((t) => remainingTags.add(t)));
+    setAllTags(Array.from(remainingTags));
+
     // Persist
     if (userId && supabase) {
       await supabase

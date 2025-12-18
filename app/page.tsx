@@ -13,8 +13,13 @@ export default function Home() {
 
   // Filters
   const [selectedTags, setSelectedTags] = useState<string[]>([]);
-  const [selectedSubject, setSelectedSubject] = useState<string>("all");
-  const [selectedDifficulty, setSelectedDifficulty] = useState<string>("all");
+  const [selectedSubjects, setSelectedSubjects] = useState<string[]>([
+    "math",
+    "english",
+  ]);
+  const [selectedDifficulties, setSelectedDifficulties] = useState<string[]>(
+    []
+  );
   const [showAnswerFor, setShowAnswerFor] = useState<Record<string, boolean>>(
     {}
   );
@@ -29,10 +34,13 @@ export default function Home() {
   // Filter logic
   const filteredQuestions = useMemo(() => {
     return questions.filter((q) => {
-      if (selectedSubject !== "all" && q.subject !== selectedSubject)
+      if (selectedSubjects.length > 0 && !selectedSubjects.includes(q.subject))
         return false;
-      if (selectedDifficulty !== "all" && q.difficulty !== selectedDifficulty)
-        return false;
+      if (selectedDifficulties.length > 0) {
+        const diff = q.difficulty || "Unknown";
+        const normalizedDiff = diff === "" ? "Unknown" : diff;
+        if (!selectedDifficulties.includes(normalizedDiff)) return false;
+      }
       if (selectedTags.length > 0) {
         // AND logic
         const hasAll = selectedTags.every((t) => q.tags.includes(t));
@@ -40,7 +48,7 @@ export default function Home() {
       }
       return true;
     });
-  }, [questions, selectedSubject, selectedTags, selectedDifficulty]);
+  }, [questions, selectedSubjects, selectedTags, selectedDifficulties]);
 
   // Pagination logic
   const totalPages = Math.ceil(filteredQuestions.length / itemsPerPage);
@@ -52,7 +60,7 @@ export default function Home() {
   // Reset page when filters change
   useMemo(() => {
     setCurrentPage(1);
-  }, [selectedTags, selectedSubject, selectedDifficulty, itemsPerPage]);
+  }, [selectedTags, selectedSubjects, selectedDifficulties, itemsPerPage]);
 
   // Scroll to top when page changes
   useEffect(() => {
@@ -140,49 +148,70 @@ export default function Home() {
         >
           <div className="bg-white p-4 rounded shadow mb-4">
             <h3 className="font-bold mb-2">Subject</h3>
-            <select
-              value={selectedSubject}
-              onChange={(e) => {
-                setSelectedSubject(e.target.value);
-                setSidebarOpen(false);
-              }}
-              className="w-full p-2 border rounded mb-2"
-            >
-              <option value="all">All Subjects</option>
-              <option value="math">Math</option>
-              <option value="english">English</option>
-            </select>
+            <div className="flex flex-wrap gap-2">
+              {[
+                { value: "math", label: "Math" },
+                { value: "english", label: "English" },
+              ].map((opt) => (
+                <button
+                  key={opt.value}
+                  onClick={() => {
+                    setSelectedSubjects((prev) =>
+                      prev.includes(opt.value)
+                        ? prev.filter((s) => s !== opt.value)
+                        : [...prev, opt.value]
+                    );
+                  }}
+                  className={`px-3 py-1.5 rounded text-sm border cursor-pointer ${
+                    selectedSubjects.includes(opt.value)
+                      ? "bg-blue-100 border-blue-500 text-blue-700"
+                      : "bg-gray-50 border-gray-200 text-gray-700 hover:bg-gray-100"
+                  }`}
+                >
+                  {opt.label}
+                </button>
+              ))}
+            </div>
 
             <h3 className="font-bold mb-2 mt-4">Difficulty</h3>
-            <select
-              value={selectedDifficulty}
-              onChange={(e) => {
-                setSelectedDifficulty(e.target.value);
-                setSidebarOpen(false);
-              }}
-              className="w-full p-2 border rounded"
-            >
-              <option value="all">All Difficulties</option>
-              <option value="Easy">Easy</option>
-              <option value="Medium">Medium</option>
-              <option value="Hard">Hard</option>
-            </select>
+            <div className="flex flex-wrap gap-2">
+              {["Easy", "Medium", "Hard", "Unknown"].map((diff) => (
+                <button
+                  key={diff}
+                  onClick={() => {
+                    setSelectedDifficulties((prev) =>
+                      prev.includes(diff)
+                        ? prev.filter((d) => d !== diff)
+                        : [...prev, diff]
+                    );
+                  }}
+                  className={`px-3 py-1.5 rounded text-sm border cursor-pointer ${
+                    selectedDifficulties.includes(diff)
+                      ? "bg-blue-100 border-blue-500 text-blue-700"
+                      : "bg-gray-50 border-gray-200 text-gray-700 hover:bg-gray-100"
+                  }`}
+                >
+                  {diff}
+                </button>
+              ))}
+            </div>
 
             <h3 className="font-bold mb-2 mt-4">Questions per Page</h3>
-            <select
-              value={itemsPerPage}
-              onChange={(e) => {
-                setItemsPerPage(Number(e.target.value));
-                setSidebarOpen(false);
-              }}
-              className="w-full p-2 border rounded"
-            >
+            <div className="flex flex-wrap gap-2">
               {PAGE_SIZE_OPTIONS.map((size) => (
-                <option key={size} value={size}>
-                  {size} per page
-                </option>
+                <button
+                  key={size}
+                  onClick={() => setItemsPerPage(size)}
+                  className={`px-3 py-1.5 rounded text-sm border cursor-pointer ${
+                    itemsPerPage === size
+                      ? "bg-blue-100 border-blue-500 text-blue-700"
+                      : "bg-gray-50 border-gray-200 text-gray-700 hover:bg-gray-100"
+                  }`}
+                >
+                  {size}
+                </button>
               ))}
-            </select>
+            </div>
           </div>
 
           <div className="bg-white p-4 rounded shadow">
@@ -254,21 +283,31 @@ export default function Home() {
                 <div className="flex flex-col sm:flex-row sm:justify-between sm:items-start gap-3 mb-4">
                   <div className="flex flex-wrap gap-1">
                     <button
-                      onClick={() => setSelectedSubject(q.subject)}
+                      onClick={() => {
+                        setSelectedSubjects((prev) =>
+                          prev.includes(q.subject)
+                            ? prev.filter((s) => s !== q.subject)
+                            : [...prev, q.subject]
+                        );
+                      }}
                       className="inline-block bg-gray-200 rounded px-2 py-1 text-xs font-bold text-gray-700 hover:bg-gray-300 cursor-pointer"
                     >
                       {q.subject.toUpperCase()}
                     </button>
-                    {q.difficulty && (
-                      <button
-                        onClick={() =>
-                          setSelectedDifficulty(q.difficulty || "all")
-                        }
-                        className="inline-block bg-gray-200 rounded px-2 py-1 text-xs font-bold text-gray-700 hover:bg-gray-300 cursor-pointer"
-                      >
-                        {q.difficulty}
-                      </button>
-                    )}
+                    <button
+                      onClick={() => {
+                        const diff = q.difficulty || "Unknown";
+                        const normalizedDiff = diff === "" ? "Unknown" : diff;
+                        setSelectedDifficulties((prev) =>
+                          prev.includes(normalizedDiff)
+                            ? prev.filter((d) => d !== normalizedDiff)
+                            : [...prev, normalizedDiff]
+                        );
+                      }}
+                      className="inline-block bg-gray-200 rounded px-2 py-1 text-xs font-bold text-gray-700 hover:bg-gray-300 cursor-pointer"
+                    >
+                      {q.difficulty || "Unknown"}
+                    </button>
                     <Link
                       href={`/question/${q.id}`}
                       className="inline-block bg-blue-100 text-blue-700 rounded px-2 py-1 text-xs font-bold hover:bg-blue-200 transition-colors"

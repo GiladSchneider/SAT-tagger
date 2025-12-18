@@ -46,11 +46,12 @@ export function useQuestions() {
 
         const combined = [...mathData, ...engData];
 
-        // Load tags based on auth state
+        // Load tags and notes based on auth state
         let tagMap: Record<string, string[]> = {};
+        let notesMap: Record<string, string> = {};
 
         if (userId && supabase) {
-          // Load from Supabase
+          // Load tags from Supabase
           const { data, error } = await supabase
             .from("tags")
             .select("question_id, tag")
@@ -64,16 +65,31 @@ export function useQuestions() {
               tagMap[row.question_id].push(row.tag);
             });
           }
+
+          // Load notes from Supabase
+          const { data: notesData, error: notesError } = await supabase
+            .from("notes")
+            .select("question_id, note")
+            .eq("user_id", userId);
+
+          if (!notesError && notesData) {
+            notesData.forEach((row: { question_id: string; note: string }) => {
+              notesMap[row.question_id] = row.note;
+            });
+          }
         } else {
           // Load from localStorage
           const storedTags = localStorage.getItem("sat-app-tags");
           tagMap = storedTags ? JSON.parse(storedTags) : {};
+          const storedNotes = localStorage.getItem("sat-app-notes");
+          notesMap = storedNotes ? JSON.parse(storedNotes) : {};
         }
 
-        // Merge tags
+        // Merge tags and notes
         const merged = combined.map((q) => ({
           ...q,
           tags: tagMap[q.id] || [],
+          notes: notesMap[q.id] || "",
         }));
 
         setQuestions(merged);
@@ -129,6 +145,11 @@ export function useQuestions() {
     });
     setQuestions(newQuestions);
 
+    // Recalculate allTags to remove orphaned tags
+    const remainingTags = new Set<string>();
+    newQuestions.forEach((q) => q.tags.forEach((t) => remainingTags.add(t)));
+    setAllTags(Array.from(remainingTags));
+
     // Persist
     if (userId && supabase) {
       await supabase
@@ -142,6 +163,31 @@ export function useQuestions() {
     }
   };
 
+  const updateNote = async (questionId: string, note: string) => {
+    const newQuestions = questions.map((q) => {
+      if (q.id === questionId) {
+        return { ...q, notes: note };
+      }
+      return q;
+    });
+    setQuestions(newQuestions);
+
+    // Persist
+    if (userId && supabase) {
+      // Upsert note in Supabase
+      await supabase.from("notes").upsert(
+        {
+          user_id: userId,
+          question_id: questionId,
+          note: note,
+        },
+        { onConflict: "user_id,question_id" }
+      );
+    } else {
+      updateNotesLocalStorage(newQuestions);
+    }
+  };
+
   const updateLocalStorage = (qs: Question[]) => {
     const tagMap: Record<string, string[]> = {};
     qs.forEach((q) => {
@@ -152,5 +198,24 @@ export function useQuestions() {
     localStorage.setItem("sat-app-tags", JSON.stringify(tagMap));
   };
 
-  return { questions, allTags, addTag, removeTag, loading, userId, userEmail };
+  const updateNotesLocalStorage = (qs: Question[]) => {
+    const notesMap: Record<string, string> = {};
+    qs.forEach((q) => {
+      if (q.notes) {
+        notesMap[q.id] = q.notes;
+      }
+    });
+    localStorage.setItem("sat-app-notes", JSON.stringify(notesMap));
+  };
+
+  return {
+    questions,
+    allTags,
+    addTag,
+    removeTag,
+    updateNote,
+    loading,
+    userId,
+    userEmail,
+  };
 }

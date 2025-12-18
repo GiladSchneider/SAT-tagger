@@ -6,4 +6,5 @@ export interface Question {
   correct_answer: string | null;
   difficulty: string | null;
   tags: string[];
+  notes?: string;
 }

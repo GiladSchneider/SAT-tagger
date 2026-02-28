@@ -54,7 +54,8 @@ export function useQuestions() {
           const { data, error } = await supabase
             .from("tags")
             .select("question_id, tag")
-            .eq("user_id", userId);
+            .eq("user_id", userId)
+            .limit(10000);
 
           if (!error && data) {
             data.forEach((row: { question_id: string; tag: string }) => {
@@ -110,7 +111,7 @@ export function useQuestions() {
           return { ...q, tags: [...q.tags, tag] };
         }
         return q;
-      })
+      }),
     );
 
     if (userId && supabase) {
@@ -121,9 +122,7 @@ export function useQuestions() {
       });
     } else {
       const stored = localStorage.getItem("sat-app-tags");
-      const tagMap: Record<string, string[]> = stored
-        ? JSON.parse(stored)
-        : {};
+      const tagMap: Record<string, string[]> = stored ? JSON.parse(stored) : {};
       if (!tagMap[questionId]) tagMap[questionId] = [];
       if (!tagMap[questionId].includes(tag)) tagMap[questionId].push(tag);
       localStorage.setItem("sat-app-tags", JSON.stringify(tagMap));
@@ -137,7 +136,7 @@ export function useQuestions() {
           return { ...q, tags: q.tags.filter((t) => t !== tag) };
         }
         return q;
-      })
+      }),
     );
 
     if (userId && supabase) {
@@ -149,9 +148,7 @@ export function useQuestions() {
         .eq("tag", tag);
     } else {
       const stored = localStorage.getItem("sat-app-tags");
-      const tagMap: Record<string, string[]> = stored
-        ? JSON.parse(stored)
-        : {};
+      const tagMap: Record<string, string[]> = stored ? JSON.parse(stored) : {};
       if (tagMap[questionId]) {
         tagMap[questionId] = tagMap[questionId].filter((t) => t !== tag);
         if (tagMap[questionId].length === 0) delete tagMap[questionId];
@@ -178,7 +175,7 @@ export function useQuestions() {
           question_id: questionId,
           note: note,
         },
-        { onConflict: "user_id,question_id" }
+        { onConflict: "user_id,question_id" },
       );
     } else {
       updateNotesLocalStorage(newQuestions);

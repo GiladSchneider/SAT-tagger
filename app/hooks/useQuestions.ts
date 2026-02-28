@@ -1,12 +1,11 @@
 "use client";
 
-import { useState, useEffect } from "react";
+import { useState, useEffect, useMemo } from "react";
 import { Question } from "../types";
 import { supabase } from "../../lib/supabaseClient";
 
 export function useQuestions() {
   const [questions, setQuestions] = useState<Question[]>([]);
-  const [allTags, setAllTags] = useState<string[]>([]);
   const [loading, setLoading] = useState(true);
   const [userId, setUserId] = useState<string | null>(null);
   const [userEmail, setUserEmail] = useState<string | null>(null);
@@ -93,11 +92,6 @@ export function useQuestions() {
         }));
 
         setQuestions(merged);
-
-        // Collect all unique tags
-        const tags = new Set<string>();
-        merged.forEach((q) => q.tags.forEach((t) => tags.add(t)));
-        setAllTags(Array.from(tags));
       } catch (e) {
         console.error("Failed to load data", e);
       } finally {
@@ -109,22 +103,16 @@ export function useQuestions() {
   }, [userId]);
 
   const addTag = async (questionId: string, tag: string) => {
-    // Update local state immediately
-    const newQuestions = questions.map((q) => {
-      if (q.id === questionId) {
-        if (q.tags.includes(tag)) return q;
-        return { ...q, tags: [...q.tags, tag] };
-      }
-      return q;
-    });
+    setQuestions((prev) =>
+      prev.map((q) => {
+        if (q.id === questionId) {
+          if (q.tags.includes(tag)) return q;
+          return { ...q, tags: [...q.tags, tag] };
+        }
+        return q;
+      })
+    );
 
-    setQuestions(newQuestions);
-
-    if (!allTags.includes(tag)) {
-      setAllTags([...allTags, tag]);
-    }
-
-    // Persist
     if (userId && supabase) {
       await supabase.from("tags").insert({
         user_id: userId,
@@ -132,25 +120,26 @@ export function useQuestions() {
         tag: tag,
       });
     } else {
-      updateLocalStorage(newQuestions);
+      const stored = localStorage.getItem("sat-app-tags");
+      const tagMap: Record<string, string[]> = stored
+        ? JSON.parse(stored)
+        : {};
+      if (!tagMap[questionId]) tagMap[questionId] = [];
+      if (!tagMap[questionId].includes(tag)) tagMap[questionId].push(tag);
+      localStorage.setItem("sat-app-tags", JSON.stringify(tagMap));
     }
   };
 
   const removeTag = async (questionId: string, tag: string) => {
-    const newQuestions = questions.map((q) => {
-      if (q.id === questionId) {
-        return { ...q, tags: q.tags.filter((t) => t !== tag) };
-      }
-      return q;
-    });
-    setQuestions(newQuestions);
+    setQuestions((prev) =>
+      prev.map((q) => {
+        if (q.id === questionId) {
+          return { ...q, tags: q.tags.filter((t) => t !== tag) };
+        }
+        return q;
+      })
+    );
 
-    // Recalculate allTags to remove orphaned tags
-    const remainingTags = new Set<string>();
-    newQuestions.forEach((q) => q.tags.forEach((t) => remainingTags.add(t)));
-    setAllTags(Array.from(remainingTags));
-
-    // Persist
     if (userId && supabase) {
       await supabase
         .from("tags")
@@ -159,7 +148,15 @@ export function useQuestions() {
         .eq("question_id", questionId)
         .eq("tag", tag);
     } else {
-      updateLocalStorage(newQuestions);
+      const stored = localStorage.getItem("sat-app-tags");
+      const tagMap: Record<string, string[]> = stored
+        ? JSON.parse(stored)
+        : {};
+      if (tagMap[questionId]) {
+        tagMap[questionId] = tagMap[questionId].filter((t) => t !== tag);
+        if (tagMap[questionId].length === 0) delete tagMap[questionId];
+      }
+      localStorage.setItem("sat-app-tags", JSON.stringify(tagMap));
     }
   };
 
@@ -188,15 +185,11 @@ export function useQuestions() {
     }
   };
 
-  const updateLocalStorage = (qs: Question[]) => {
-    const tagMap: Record<string, string[]> = {};
-    qs.forEach((q) => {
-      if (q.tags.length > 0) {
-        tagMap[q.id] = q.tags;
-      }
-    });
-    localStorage.setItem("sat-app-tags", JSON.stringify(tagMap));
-  };
+  const allTags = useMemo(() => {
+    const tags = new Set<string>();
+    questions.forEach((q) => q.tags.forEach((t) => tags.add(t)));
+    return Array.from(tags);
+  }, [questions]);
 
   const updateNotesLocalStorage = (qs: Question[]) => {
     const notesMap: Record<string, string> = {};

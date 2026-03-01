@@ -19,23 +19,54 @@ export default function Home() {
     userEmail,
   } = useQuestions();
 
-  // Filters
-  const [selectedTags, setSelectedTags] = useState<string[]>([]);
-  const [selectedSubjects, setSelectedSubjects] = useState<string[]>([
-    "math",
-    "english",
-  ]);
+  // Restore filters from sessionStorage if available
+  const [selectedTags, setSelectedTags] = useState<string[]>(() => {
+    if (typeof window === "undefined") return [];
+    const saved = sessionStorage.getItem("sat-filters");
+    return saved ? JSON.parse(saved).selectedTags ?? [] : [];
+  });
+  const [selectedSubjects, setSelectedSubjects] = useState<string[]>(() => {
+    if (typeof window === "undefined") return ["math", "english"];
+    const saved = sessionStorage.getItem("sat-filters");
+    return saved ? JSON.parse(saved).selectedSubjects ?? ["math", "english"] : ["math", "english"];
+  });
   const [selectedDifficulties, setSelectedDifficulties] = useState<string[]>(
-    []
+    () => {
+      if (typeof window === "undefined") return [];
+      const saved = sessionStorage.getItem("sat-filters");
+      return saved ? JSON.parse(saved).selectedDifficulties ?? [] : [];
+    }
   );
   const [showAnswerFor, setShowAnswerFor] = useState<Record<string, boolean>>(
     {}
   );
   const [showNotesFor, setShowNotesFor] = useState<Record<string, boolean>>({});
 
-  // Pagination
-  const [currentPage, setCurrentPage] = useState(1);
-  const [itemsPerPage, setItemsPerPage] = useState(10);
+  // Pagination - restore from sessionStorage
+  const [currentPage, setCurrentPage] = useState(() => {
+    if (typeof window === "undefined") return 1;
+    const saved = sessionStorage.getItem("sat-filters");
+    return saved ? JSON.parse(saved).currentPage ?? 1 : 1;
+  });
+  const [itemsPerPage, setItemsPerPage] = useState(() => {
+    if (typeof window === "undefined") return 10;
+    const saved = sessionStorage.getItem("sat-filters");
+    return saved ? JSON.parse(saved).itemsPerPage ?? 10 : 10;
+  });
+
+  // Persist filter state to sessionStorage
+  useEffect(() => {
+    sessionStorage.setItem(
+      "sat-filters",
+      JSON.stringify({
+        selectedTags,
+        selectedSubjects,
+        selectedDifficulties,
+        currentPage,
+        itemsPerPage,
+      })
+    );
+  }, [selectedTags, selectedSubjects, selectedDifficulties, currentPage, itemsPerPage]);
 
   // Mobile sidebar toggle
   const [sidebarOpen, setSidebarOpen] = useState(false);
@@ -69,11 +100,6 @@ export default function Home() {
     currentPage * itemsPerPage
   );
 
-  // Reset page when filters change
-  useMemo(() => {
-    setCurrentPage(1);
-  }, [selectedTags, selectedSubjects, selectedDifficulties, itemsPerPage]);
-
   // Scroll to top when page changes
   useEffect(() => {
     window.scrollTo({ top: 0, behavior: "instant" });
@@ -85,6 +111,7 @@ export default function Home() {
     } else {
       setSelectedTags([...selectedTags, tag]);
     }
+    setCurrentPage(1);
   };
 
   const toggleAnswer = (id: string) => {
@@ -208,6 +235,7 @@ export default function Home() {
                         ? prev.filter((s) => s !== opt.value)
                         : [...prev, opt.value]
                     );
+                    setCurrentPage(1);
                   }}
                   className={`px-3 py-1.5 rounded text-sm border cursor-pointer ${
                     selectedSubjects.includes(opt.value)
@@ -231,6 +259,7 @@ export default function Home() {
                         ? prev.filter((d) => d !== diff)
                         : [...prev, diff]
                     );
+                    setCurrentPage(1);
                   }}
                   className={`px-3 py-1.5 rounded text-sm border cursor-pointer ${
                     selectedDifficulties.includes(diff)
@@ -248,7 +277,7 @@ export default function Home() {
               {PAGE_SIZE_OPTIONS.map((size) => (
                 <button
                   key={size}
-                  onClick={() => setItemsPerPage(size)}
+                  onClick={() => { setItemsPerPage(size); setCurrentPage(1); }}
                   className={`px-3 py-1.5 rounded text-sm border cursor-pointer ${
                     itemsPerPage === size
                       ? "bg-blue-100 border-blue-500 text-blue-700"
@@ -387,6 +416,7 @@ export default function Home() {
                             ? prev.filter((s) => s !== q.subject)
                             : [...prev, q.subject]
                         );
+                        setCurrentPage(1);
                       }}
                       className="inline-block bg-gray-200 rounded px-2 py-1 text-xs font-bold text-gray-700 hover:bg-gray-300 cursor-pointer"
                     >
@@ -400,6 +430,7 @@ export default function Home() {
                             ? prev.filter((d) => d !== diff)
                             : [...prev, diff]
                         );
+                        setCurrentPage(1);
                       }}
                       className="inline-block bg-gray-200 rounded px-2 py-1 text-xs font-bold text-gray-700 hover:bg-gray-300 cursor-pointer"
                     >

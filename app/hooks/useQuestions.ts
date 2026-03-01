@@ -50,20 +50,32 @@ export function useQuestions() {
         let notesMap: Record<string, string> = {};
 
         if (userId && supabase) {
-          // Load tags from Supabase
-          const { data, error } = await supabase
-            .from("tags")
-            .select("question_id, tag")
-            .eq("user_id", userId)
-            .limit(10000);
+          // Load tags from Supabase (paginated to avoid 1000-row server limit)
+          const pageSize = 1000;
+          let from = 0;
+          let hasMore = true;
+          while (hasMore) {
+            const { data, error } = await supabase
+              .from("tags")
+              .select("question_id, tag")
+              .eq("user_id", userId)
+              .range(from, from + pageSize - 1);
 
-          if (!error && data) {
-            data.forEach((row: { question_id: string; tag: string }) => {
-              if (!tagMap[row.question_id]) {
-                tagMap[row.question_id] = [];
+            if (error || !data || data.length === 0) {
+              hasMore = false;
+            } else {
+              data.forEach((row: { question_id: string; tag: string }) => {
+                if (!tagMap[row.question_id]) {
+                  tagMap[row.question_id] = [];
+                }
+                tagMap[row.question_id].push(row.tag);
+              });
+              if (data.length < pageSize) {
+                hasMore = false;
+              } else {
+                from += pageSize;
               }
-              tagMap[row.question_id].push(row.tag);
-            });
+            }
           }
 
           // Load notes from Supabase

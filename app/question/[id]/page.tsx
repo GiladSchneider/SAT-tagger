@@ -68,7 +68,7 @@ export default function QuestionPage({
         {/* Navigation bar */}
         <div className="flex items-center justify-between mb-4 md:mb-6">
           <button
-            onClick={() => router.back()}
+            onClick={() => router.push("/")}
             className="text-blue-600 hover:underline flex items-center cursor-pointer"
           >
             <ArrowLeft className="w-4 h-4 mr-1" /> Back to Question Bank
